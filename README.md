@@ -18,3 +18,7 @@ drop down menu without javascript
 - [ ] what is swipeableview
 
 [react에서 window resize 이벤트](https://velog.io/@dblee/React-resize-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EB%B0%9C%EC%83%9D-%EC%8B%9C-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EB%A6%AC%EB%A0%8C%EB%8D%94)
+
+## award
+
+- mainList : 자바스크립트로 리액트 처럼 html 삽입하는 부분

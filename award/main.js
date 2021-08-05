@@ -3,17 +3,15 @@ const mainList = document.querySelector('.awardList');
 // dummyData
 const dummyMainListData = Array(20)
   .fill()
-  .map(v => {
-    return {
-      itemLink: '/AwardFestival/WinnersList.asp',
-      itemImg:
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbjjOfEKwT2cspVrDjuJElO5QPOY_7C-xOTA&usqp=CAU',
-      itemImgSmall:
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbjjOfEKwT2cspVrDjuJElO5QPOY_7C-xOTA&usqp=CAU',
-      title: 'New York Festival',
-      region: 'Lisbon, Portugal',
-    };
-  });
+  .map(v => ({
+    itemLink: '/AwardFestival/WinnersList.asp',
+    itemImg:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbjjOfEKwT2cspVrDjuJElO5QPOY_7C-xOTA&usqp=CAU',
+    itemImgSmall:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbjjOfEKwT2cspVrDjuJElO5QPOY_7C-xOTA&usqp=CAU',
+    title: 'New York Festival',
+    region: 'Lisbon, Portugal',
+  }));
 
 console.log(dummyMainListData);
 let count = 0;
