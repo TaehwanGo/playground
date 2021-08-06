@@ -5,10 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="module" src="src/main.js" defer></script>
+    <link rel="stylesheet" href="styles/styles.css" />
     <title>Award</title>
   </head>
   <body>
     <ul class="awardList"></ul>
     <div class="testDiv">before</div>
+    <div class="select-editable">
+      <select onchange="this.nextElementSibling.value=this.value">
+        <option value=""></option>
+        <option value="115x175 mm">115x175 mm</option>
+        <option value="120x160 mm">120x160 mm</option>
+        <option value="120x287 mm">120x287 mm</option>
+      </select>
+      <input type="text" name="format" value="" />
+    </div>
+    <input list="browsers" name="browser" />
+    <datalist id="browsers">
+      <option value="Internet Explorer"></option>
+      <option value="Firefox"></option>
+      <option value="Chrome"></option>
+      <option value="Opera"></option>
+      <option value="Safari"></option>
+    </datalist>
   </body>
 </html>
