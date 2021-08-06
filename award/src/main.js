@@ -1,9 +1,12 @@
+// import './test';
+import { testFunction } from './test';
+
 const mainList = document.querySelector('.awardList');
 
 // dummyData
 const dummyMainListData = Array(20)
   .fill()
-  .map(v => ({
+  .map((v) => ({
     itemLink: '/AwardFestival/WinnersList.asp',
     itemImg:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbjjOfEKwT2cspVrDjuJElO5QPOY_7C-xOTA&usqp=CAU',
@@ -17,8 +20,8 @@ console.log(dummyMainListData);
 let count = 0;
 
 // MainList
-const AddMainList = mainListData => {
-  mainListData.forEach(mainListItem => {
+const AddMainList = (mainListData) => {
+  mainListData.forEach((mainListItem) => {
     console.log(count++);
     mainList.innerHTML += String.raw`<li>
     <a href=${mainListItem.url} class="linkItem">
@@ -41,6 +44,7 @@ const AddMainList = mainListData => {
 
 function init() {
   AddMainList(dummyMainListData);
+  testFunction();
 }
 
 init();
