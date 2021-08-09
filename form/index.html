@@ -8,8 +8,11 @@
     <title>Document</title>
   </head>
   <body>
-    <input type="file" accept="image/*" onchange="loadFile(event)" />
-    <img id="output" />
+    <form>
+      <input type="text" required placeholder="이름" />
+      <input type="file" accept="image/*" onchange="loadFile(event)" />
+      <img id="output" />
+    </form>
     <script>
       var loadFile = function (event) {
         var output = document.getElementById('output');
