@@ -58,13 +58,19 @@ function makeParam(param) {
     NationCode: 0,
     ...param,
   };
+  result.PageNum = result.PageNum || 1;
+  result.PageSize = result.PageSize || 15;
+  result.AwardIdx = result.AwardIdx || 0;
+  result.AwardYear = result.AwardYear || 0;
+  result.NationCode = result.NationCode || 0;
   console.log(result);
 }
 
 function init() {
   makeParam({
     PageNum: 2,
-    AwardYear: 2015,
+    NationCode: 410,
+    AwardYear: undefined,
   });
   // AddMainList(dummyMainListData);
   testFunction();
