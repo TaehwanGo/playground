@@ -49,7 +49,23 @@ function onKeyup(event) {
   }
 }
 
+function makeParam(param) {
+  const result = {
+    PageNum: 1,
+    PageSize: 15,
+    AwardIdx: 0,
+    AwardYear: 0,
+    NationCode: 0,
+    ...param,
+  };
+  console.log(result);
+}
+
 function init() {
+  makeParam({
+    PageNum: 2,
+    AwardYear: 2015,
+  });
   // AddMainList(dummyMainListData);
   testFunction();
   inputTest.addEventListener('keyup', () => {
