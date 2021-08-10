@@ -71,6 +71,8 @@ function init() {
     PageNum: 2,
     NationCode: 410,
     AwardYear: undefined,
+    PageSize: null,
+    AwardIdx: '',
   });
   // AddMainList(dummyMainListData);
   testFunction();
