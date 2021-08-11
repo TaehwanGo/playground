@@ -42,3 +42,4 @@ drop down menu without javascript
 - [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData/FormData)
 - [loading by style](https://stackoverflow.com/questions/58820229/how-to-show-loading-icon-till-await-finishes)
 - [loading by innerHTML](https://stackoverflow.com/questions/60112618/how-can-i-add-a-spinner-in-javascript-while-fetch-async-is-loading-my-data)
+- [convert string to DOM nodes](https://davidwalsh.name/convert-html-stings-dom-nodes)

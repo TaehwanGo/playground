@@ -29,8 +29,18 @@ function method2() {
   }, 2000);
 }
 
+/**
+ * javascript inline style
+ */
+main.style.backgroundColor = '#e5e5e5';
+function resizeLoadingSpinner(width, height) {
+  LoadingSpinner.style.width = width;
+  LoadingSpinner.style.height = height;
+}
+
 function init() {
   //   method1();
+  resizeLoadingSpinner('100px', '100px');
   method2();
 }
 
