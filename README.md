@@ -44,3 +44,4 @@ drop down menu without javascript
 - [loading by innerHTML](https://stackoverflow.com/questions/60112618/how-can-i-add-a-spinner-in-javascript-while-fetch-async-is-loading-my-data)
 - [convert string to DOM nodes](https://davidwalsh.name/convert-html-stings-dom-nodes)
 - [javascript pagination](https://stackoverflow.com/questions/25434813/simple-pagination-in-javascript)
+- [javascript FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData/Using_FormData_Objects)
