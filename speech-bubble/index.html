@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>speech-bubble</title>
+  </head>
+  <body>
+    <div class="balloon right"><span>말풍선(오른쪽)</span></div>
+    <!-- <div class="balloon top"><span>말풍선(위)</span></div>
+    <div class="balloon bottom"><span>말풍선(아래)</span></div>
+    <div class="balloon left"><span>말풍선(왼쪽)</span></div> -->
+
+    <style>
+      .balloon {
+        position: relative;
+        display: inline-block;
+      }
+
+      .balloon span {
+        display: inline-block;
+        padding: 10px;
+        color: #fff;
+        background: #ad1e51;
+        border-radius: 20px;
+      }
+
+      .balloon:after {
+        content: 'aaa';
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-style: solid;
+      }
+
+      .balloon.right:after,
+      .balloon.left:after {
+        border-width: 10px 15px;
+        top: 50%;
+        margin-top: -10px;
+      }
+      /* 
+      .balloon.top:after,
+      .balloon.bottom:after {
+        border-width: 15px 10px;
+        left: 50%;
+        margin-left: -10px;
+      }
+
+      .balloon.top:after {
+        border-color: #ad1e51 transparent transparent transparent;
+        bottom: -25px;
+      }
+
+      .balloon.bottom:after {
+        border-color: transparent transparent #ad1e51 transparent;
+        top: -25px;
+      } */
+
+      /* .balloon.left:after {
+        border-color: transparent #ad1e51 transparent transparent;
+        left: -25px;
+      } */
+
+      .balloon.right:after {
+        border-color: green yellow blue #ad1e51;
+        /* border-color: transparent transparent transparent #ad1e51; */
+        right: -25px;
+      }
+    </style>
+  </body>
+</html>
