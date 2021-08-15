@@ -4,15 +4,37 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="main.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="main.js" defer></script>
     <title>Document</title>
   </head>
   <body>
-    <form>
-      <input type="text" required placeholder="이름" />
-      <input type="file" accept="image/*" onchange="loadFile(event)" />
-      <img id="output" />
+    <form
+      action="http://localhost:3065/formTest"
+      method="post"
+      enctype="multipart/form-data"
+      id="testForm"
+    >
+      <div class="image__preview__wrapper">
+        <img
+          src="https://newsimg.sedaily.com/2021/01/15/22H9L09M9Q_1.jpg"
+          class="image__preview"
+          id="output"
+        />
+      </div>
+      <input id="testInputText" type="text" required placeholder="이름" />
+      <input
+        id="testInputImage"
+        type="file"
+        accept="image/*"
+        onchange="loadFile(event)"
+      />
+      <div>
+        <button type="submit" id="testBtn">postTest</button>
+      </div>
     </form>
+
     <script>
       var loadFile = function (event) {
         var output = document.getElementById('output');

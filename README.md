@@ -27,7 +27,9 @@ drop down menu without javascript
 
 - 이미지 업로드
 - label만 보여주고 나머지 input 부분을 숨길 수 도 있구나
-- [ ] formData가 뭔지 알아보기
+- [x] formData가 뭔지 알아보기
+- 이미지가 포함되면 서버에선 'content-type': 'multipart/form-data; boundary=----WebKitFormBoundaryjHlBOsNKdipheLFR' 으로 전달되고
+- body엔 값이 없음
 
 ### loading spinner while
 
