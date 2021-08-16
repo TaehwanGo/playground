@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+    <title>Validation</title>
+</head>
+<body>
+    <div class="box_wrap_award" id="AddAwardDetailForm">
+        <div class="table_wrap">
+          <div class="tableCell_wrap" id="overLayer">
+            <div class="box_cont_enroll">
+              <form id="awardForm" onsubmit="return false;" autocomplete="off">
+                <div class="clearFix">
+                  <div class="wrap_necessary">
+                    <strong class="heading_title">어워드 정보 등록&nbsp;(<span class="point_accent">&nbsp;*</span> 필수 입력&nbsp;)</strong>
+                    <div class="box_inner">
+                      <table>
+                        <colgroup>                  
+                          <col width="90px"/>
+                          <col />
+                        </colgroup>              
+                        <tbody>
+                          <tr>  
+                            <th>
+                              <strong class="txt_subject astrix"><span class="point_accent">&nbsp;*&nbsp;</span>어워드명</strong>
+                            </th>                  
+                            <td>
+                              <div class="wrap_positon_rel">
+                                <input type="text" id="inputAddAwardName" class="input_apply award_name" name="award_name" placeholder="ex) 서울영상광고제">
+                                <!-- <span class="txt_placeholder">ex) 서울영상광고제</span>   -->
+                                <!-- <span class="bar_animation"></span> -->
+                                <!-- <div class="box_alert">
+                                  <span class="txt_alert">*이미 등록된 어워드입니다.</span>
+                                </div> -->
+                              </div>                        
+                            </td>
+                          </tr>
+                          <tr>  
+                            <th>
+                              <strong class="txt_subject">로고 IMG<br/>(200 X 100 px)</strong>
+                            </th>                  
+                            <td>
+                              <div class="filebox preview-image">
+                                  <div class="upload-display">
+                                    <div class="upload-thumb-wrap">
+                                      <img src="https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg" alt="">
+                                    </div>
+                                  </div>
+                                  <div>
+                                    <label for="input-file"><i class="far fa-cloud-upload-alt"></i><span>업로드</span></label>
+                                    <input type="file" id="input-file" class="upload-hidden" name="award_img">
+                                  </div>
+                              </div>
+                            </td>
+                          </tr>                    
+                          <tr>
+                            <th>
+                              <strong class="txt_subject">어워드 설명</strong></th>
+                            <td>
+                              <textarea class="text_apply" name="award_desc" placeholder="어워드에 대한 설명을 입력하세요.(최대 500byte)"></textarea>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>
+                              개최 국가<br/>/도시
+                            </th>
+                            <td>
+                              <div class="wrap_positon_rel">
+                                <input type="text" class="input_apply" name="award_contry">
+                                <span class="txt_placeholder">국가</span>  
+                                <span class="bar_animation"></span>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="wrap_positon_rel">
+                                <input type="text" class="input_apply" name="award_city">
+                                <span class="txt_placeholder">도시 이름</span>  
+                                <span class="bar_animation"></span>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>              
+                  </div>
+                  <div class="wrap_optional">
+                    <strong class="heading_title">Contact 정보 수정 (선택입력)</strong>
+                    <div class="box_inner">
+                      <table>
+                        <colgroup>
+                          <col width="90px"/>
+                          <col />
+                        </colgroup>              
+                        <tbody>
+                          <tr>
+                            <th>
+                              <strong class="txt_subject">기관주소</strong>
+                            </th>
+                            <td>
+                              <div class="wrap_positon_rel">
+                                <input type="text" class="input_apply" name="award_address_street">
+                                <span class="txt_placeholder">Street Address</span>  
+                                <span class="bar_animation"></span>
+                              </div>
+                              <div class="wrap_positon_rel mt_5">
+                                <input type="text" class="input_apply" name="award_address_rest">
+                                <span class="txt_placeholder">Apartment, Unit etc. (optional)</span>  
+                                <span class="bar_animation"></span>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>
+                              <strong class="txt_subject">연락처</strong></th>
+                            <td>
+                              <div class="wrap_positon_rel wrap_display_iblock size_quarter">
+                                <input type="text" class="add_plus_symbol input_apply" value="" name="award_phone_internation" maxlength="6">
+                                <span class="txt_placeholder">Int' code</span>  
+                                <span class="bar_animation"></span>
+                              </div>
+                              
+                              <div class="wrap_positon_rel wrap_display_iblock size_73">
+                                <input type="text" class="input_apply" value="" name="award_phone_rest" numberOnly maxlength="20">
+                                <span class="txt_placeholder">Rest Number</span>  
+                                <span class="bar_animation"></span>
+                              </div>                      
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>
+                              <strong class="txt_subject">E-Mail</strong></th>
+                            </th>
+                            <td>
+                              <div class="wrap_positon_rel">
+                                <input type="text"class="input_apply" value="" name="awrad_email">
+                                <span class="txt_placeholder">abc@defghij.com</span>  
+                                <span class="bar_animation"></span>
+                              </div>                      
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>
+                              <strong class="txt_subject">공식 사이트</strong>
+                            </th>
+                            <td>
+                              <div class="wrap_positon_rel">
+                                <input type="text"class="input_apply" value="" name="awrad_site">
+                                <span class="txt_placeholder">www.tvcfaward.com</span>  
+                                <span class="bar_animation"></span>
+                              </div>                       
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <strong class="txt_desc">※ 수상작품 연동은 각 작품 시청 페이지에서 추가해주세요.</strong>
+                  </div>            
+                </div>
+                <div class="wrap_btns_group">
+                  <button id="addAwardDetailSubmitBtn" class="btn btn_submit">등록</button>
+                  <button id="addAwardDetailCancelBtn" class="btn btn_cancel">취소</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+</html>
