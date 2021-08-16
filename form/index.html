@@ -10,30 +10,34 @@
     <title>Document</title>
   </head>
   <body>
-    <form
-      action="http://localhost:3065/formTest"
-      method="post"
-      enctype="multipart/form-data"
-      id="testForm"
-    >
-      <div class="image__preview__wrapper">
-        <img
-          src="https://newsimg.sedaily.com/2021/01/15/22H9L09M9Q_1.jpg"
-          class="image__preview"
-          id="output"
+    <header class="header">header</header>
+    <main class="main">
+      <form
+        action="http://localhost:3065/formTest"
+        method="post"
+        enctype="multipart/form-data"
+        id="testForm"
+      >
+        <div class="image__preview__wrapper">
+          <img
+            src="https://newsimg.sedaily.com/2021/01/15/22H9L09M9Q_1.jpg"
+            class="image__preview"
+            id="output"
+          />
+        </div>
+        <input id="testInputText" type="text" required placeholder="이름" />
+        <input
+          id="testInputImage"
+          type="file"
+          accept="image/*"
+          multiple
+          onchange="loadFile(event)"
         />
-      </div>
-      <input id="testInputText" type="text" required placeholder="이름" />
-      <input
-        id="testInputImage"
-        type="file"
-        accept="image/*"
-        onchange="loadFile(event)"
-      />
-      <div>
-        <button type="submit" id="testBtn">postTest</button>
-      </div>
-    </form>
+        <div>
+          <button type="submit" id="testBtn">postTest</button>
+        </div>
+      </form>
+    </main>
 
     <script>
       var loadFile = function (event) {

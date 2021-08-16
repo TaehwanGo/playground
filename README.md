@@ -31,6 +31,19 @@ drop down menu without javascript
 - 이미지가 포함되면 서버에선 'content-type': 'multipart/form-data; boundary=----WebKitFormBoundaryjHlBOsNKdipheLFR' 으로 전달되고
 - body엔 값이 없음
 
+### Cypress
+
+- npm install cypress --save-dev
+- npx cypress open
+- package.json과 같은 위치에 cypress.json을 만들고 baseUrl 설정 가능
+- [get](https://docs.cypress.io/api/commands/get)
+- [contains](https://docs.cypress.io/api/commands/contains#Examples)
+
+#### 참고
+
+- https://github.com/TaehwanGo/nuber-eats-frontend/blob/master/cypress/support/commands.ts
+- https://github.com/TaehwanGo/nuber-eats-frontend/blob/master/cypress/integration/user/edit-profile.ts
+
 ### loading spinner while
 
 - innerHTML로 하거나
