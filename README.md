@@ -113,5 +113,7 @@ drop down menu without javascript
 ### 참고문헌
 
 - [validation](https://stackoverflow.com/questions/3717793/javascript-file-upload-size-validation)
+- [only images allowed](https://stackoverflow.com/questions/3828554/how-to-allow-input-type-file-to-accept-only-image-files)
+- [URL.revokeObjectURL](https://developer.mozilla.org/en-US/docs/Web/API/URL/revokeObjectURL)
 
 </details>

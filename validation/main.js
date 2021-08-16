@@ -1,5 +1,6 @@
 const logoImg = document.querySelector('#imgPreview');
 const inputAwardLogo = document.querySelector('#inputAwardLogo');
+const imgPreview = document.querySelector('#imgPreview');
 
 const inputAwardName = document.querySelector('#inputAwardName');
 const awardNameMessage = document.querySelector('#awardNameMessage');
@@ -16,10 +17,18 @@ function handleMessageColor(ok) {
 }
 
 function handleInputAwardLogo() {
-  if ((inputAwardLogo.files[0].size > 5, 242, 880)) {
+  if (inputAwardLogo.files[0].size > 5242880) {
     console.log('5Mb 이하의 이미지만 등록할 수 있습니다.');
+    isLogoImgOk = false;
     return;
   }
+  inputAwardLogo.files[0];
+  console.log('등록가능한 사이즈입니다.');
+  isLogoImgOk = true;
+  imgPreview.src = URL.createObjectURL(inputAwardLogo.files[0]);
+  imgPreview.onload = function () {
+    URL.revokeObjectURL(imgPreview.src); // free memory
+  };
 }
 
 async function handleInputAwardName() {
