@@ -117,3 +117,19 @@ drop down menu without javascript
 - [URL.revokeObjectURL](https://developer.mozilla.org/en-US/docs/Web/API/URL/revokeObjectURL)
 
 </details>
+
+<details>
+<summary>image resize</summary>
+
+- https://hacks.mozilla.org/2011/01/how-to-develop-a-html5-image-uploader/
+- https://imagekit.io/blog/how-to-resize-image-in-javascript/
+
+### also good
+
+- https://stackoverflow.com/questions/23945494/use-html5-to-resize-an-image-before-upload
+
+### best
+
+- https://www.therogerlab.com/sandbox/pages/how-to-resize-an-image-using-javascript?s=0ea4985d74a189e8b7b547976e7192ae.291e10470774f14e0f838789eb83b8c9
+
+</details>
