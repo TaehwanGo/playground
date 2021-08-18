@@ -72,7 +72,7 @@ async function handleOnChange() {
   console.log('before resizing', takePictureField.files[0]);
   imgOrigin.src = URL.createObjectURL(takePictureField.files[0]);
   imgOrigin.onload = function () {
-    URL.revokeObjectURL(imgPreview.src); // free memory
+    URL.revokeObjectURL(imgOrigin.src); // free memory
   };
   const config = {
     file: takePictureField.files[0],
