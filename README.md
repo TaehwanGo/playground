@@ -133,3 +133,12 @@ drop down menu without javascript
 - https://www.therogerlab.com/sandbox/pages/how-to-resize-an-image-using-javascript?s=0ea4985d74a189e8b7b547976e7192ae.291e10470774f14e0f838789eb83b8c9
 
 </details>
+
+<details>
+<summary>글자수 제한</summary>
+
+### 참고 문헌
+
+- https://hellcoding.tistory.com/entry/textarea-%EA%B8%80%EC%9E%90%EC%88%98-%EC%A0%9C%ED%95%9C-%EB%B0%94%EC%9D%B4%ED%8A%B8Byte-%EC%A0%9C%ED%95%9C
+
+</details>

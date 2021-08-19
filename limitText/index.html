@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="main.js"></script>
+    <title>글자수 제한</title>
+  </head>
+  <body>
+    <table class="table border">
+      <tr>
+        <th style="vertical-align: middle">
+          TextArea<br />
+          <sup>(<span id="nowByte">0</span>/100bytes)</sup>
+        </th>
+        <td>
+          <form id="frm_textArea" name="frm_textArea">
+            <textarea
+              rows="10"
+              class="form-control"
+              id="textArea_byteLimit"
+              name="textArea_byteLimit"
+              onkeyup="fn_checkByte(this)"
+            ></textarea>
+          </form>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
