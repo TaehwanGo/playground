@@ -137,6 +137,22 @@ drop down menu without javascript
 <details>
 <summary>글자수 제한</summary>
 
+### html에서 event callback함수
+
+```javascript
+<textarea
+  rows="10"
+  class="form-control"
+  id="textArea_byteLimit"
+  name="textArea_byteLimit"
+  onkeyup="fn_checkByte(this)"
+></textarea>
+
+// fn_checkByte(obj) => console.log(obj) : <textarea> element
+```
+
+대부분 코드가 다 똑같다.
+
 ### 참고 문헌
 
 - https://hellcoding.tistory.com/entry/textarea-%EA%B8%80%EC%9E%90%EC%88%98-%EC%A0%9C%ED%95%9C-%EB%B0%94%EC%9D%B4%ED%8A%B8Byte-%EC%A0%9C%ED%95%9C
