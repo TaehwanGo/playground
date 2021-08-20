@@ -158,3 +158,14 @@ drop down menu without javascript
 - https://hellcoding.tistory.com/entry/textarea-%EA%B8%80%EC%9E%90%EC%88%98-%EC%A0%9C%ED%95%9C-%EB%B0%94%EC%9D%B4%ED%8A%B8Byte-%EC%A0%9C%ED%95%9C
 
 </details>
+
+<details>
+<summary>특수문자 제한</summary>
+
+### 참고 문헌
+
+- https://lemondory.tistory.com/143
+- [Emoji 입력 방지 함수|작성자 lovekod2hj](https://blog.naver.com/PostView.nhn?blogId=s0215hc&logNo=222284862836&categoryNo=44&parentCategoryNo=0&viewDate=&currentPage=1&postListTopCurrentPage=1&from=postView)
+- https://stackoverflow.com/questions/10992921/how-to-remove-emoji-code-using-javascript
+
+</details>
