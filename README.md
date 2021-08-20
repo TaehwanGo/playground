@@ -158,3 +158,12 @@ drop down menu without javascript
 - https://hellcoding.tistory.com/entry/textarea-%EA%B8%80%EC%9E%90%EC%88%98-%EC%A0%9C%ED%95%9C-%EB%B0%94%EC%9D%B4%ED%8A%B8Byte-%EC%A0%9C%ED%95%9C
 
 </details>
+
+<details>
+<summary>regex</summary>
+
+### 참고문헌
+
+- [드림코딩 엘리 유튜브, 정규표현식](https://youtu.be/t3M6toIflyQ)
+
+</details>
