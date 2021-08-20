@@ -167,5 +167,6 @@ drop down menu without javascript
 - https://lemondory.tistory.com/143
 - [Emoji 입력 방지 함수|작성자 lovekod2hj](https://blog.naver.com/PostView.nhn?blogId=s0215hc&logNo=222284862836&categoryNo=44&parentCategoryNo=0&viewDate=&currentPage=1&postListTopCurrentPage=1&from=postView)
 - https://stackoverflow.com/questions/10992921/how-to-remove-emoji-code-using-javascript
+- [정규식표현식 문법](https://heropy.blog/2018/10/28/regexp/)
 
 </details>
