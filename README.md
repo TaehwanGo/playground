@@ -165,5 +165,23 @@ drop down menu without javascript
 ### 참고문헌
 
 - [드림코딩 엘리 유튜브, 정규표현식](https://youtu.be/t3M6toIflyQ)
+<summary>특수문자 제한</summary>
+
+### 참고 문헌
+
+- https://lemondory.tistory.com/143
+- [Emoji 입력 방지 함수|작성자 lovekod2hj](https://blog.naver.com/PostView.nhn?blogId=s0215hc&logNo=222284862836&categoryNo=44&parentCategoryNo=0&viewDate=&currentPage=1&postListTopCurrentPage=1&from=postView)
+- https://stackoverflow.com/questions/10992921/how-to-remove-emoji-code-using-javascript
+- [정규식표현식 문법](https://heropy.blog/2018/10/28/regexp/)
+
+</details>
+
+<details>
+<summary>select 드롭다운</summary>
+
+### 참고 문헌
+
+- [HTML select option](https://zetawiki.com/wiki/HTML_select,_option_%ED%83%9C%EA%B7%B8)
+- [select MDN](https://developer.mozilla.org/ko/docs/Web/HTML/Element/select)
 
 </details>

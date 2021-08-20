@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title></title>
+    <script type="text/javascript">
+      function characterCheck() {
+        // var RegExp = /[ \{\}\[\]\/?.,;:|\)*~`!^\-_+┼<>@\#$%&\'\"\\\(\=]/gi; //정규식 구문
+        var RegExp = /[~!@\#$%^&*\()\-=+_'\\]/gi;
+        var obj = document.getElementsByName('cmtTxt')[0];
+        if (RegExp.test(obj.value)) {
+          // alert('특수문자는 입력하실 수 없습니다.');
+          obj.value = obj.value.substring(0, obj.value.length - 1); //특수문자를 지우는 구문
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <form>
+      <textarea
+        rows="5"
+        name="cmtTxt"
+        cols="10"
+        style="
+          width: 215px;
+          height: 88px;
+          font-size: 14px;
+          color: #464646;
+          font-family: Arial;
+        "
+        onkeyup="characterCheck()"
+      ></textarea>
+    </form>
+  </body>
+</html>
