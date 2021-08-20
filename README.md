@@ -170,3 +170,12 @@ drop down menu without javascript
 - [정규식표현식 문법](https://heropy.blog/2018/10/28/regexp/)
 
 </details>
+
+<details>
+<summary>select 드롭다운</summary>
+
+### 참고 문헌
+
+- [HTML select option](https://zetawiki.com/wiki/HTML_select,_option_%ED%83%9C%EA%B7%B8)
+
+</details>
