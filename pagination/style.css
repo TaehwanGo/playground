@@ -34,137 +34,12 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  top: 0;
+  /* position: fixed; */
+  /* top: 0;
   bottom: 0;
   left: 0;
-  right: 0;
+  right: 0; */
   background: rgba(0, 0, 0, 0.6);
-}
-
-.addAwardItem__container {
-  max-width: 1280px;
-}
-
-.addAwardItem__section {
-  background-color: #00657e;
-  overflow: auto;
-  position: relative;
-  width: 80vw;
-  height: 90vh;
-  padding: 1rem;
-}
-
-/* header */
-
-.addAwardItem__section__header::after {
-  content: '';
-  display: block;
-  border-bottom: 1px solid #95a5a6;
-  opacity: 0.7;
-  margin: 10px 0;
-}
-
-.addAwardItem__top__buttons {
-  text-align: right;
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
-.addAwardItem__close__button {
-  padding: 10px;
-}
-
-.addAwardItem__title {
-  color: white;
-}
-
-.addAwardItem__title__name {
-  color: yellow;
-}
-
-.addAwardItem__title::after {
-  content: '';
-  display: block;
-  border-bottom: 1px solid #95a5a6;
-  opacity: 0.7;
-  margin: 10px 0;
-}
-
-/* addAwardItem__nav */
-.addAwardItem__nav__contents {
-  display: flex;
-  justify-content: space-between;
-  /* align-items: flex-start; */
-}
-
-.addAwardItem__search__wrapper {
-  display: flex;
-}
-
-.addAwardItem__description {
-  margin: 0;
-}
-
-/* search */
-.addAwardItem__search__button {
-  color: white;
-}
-
-.message__error {
-  color: #c0392b;
-}
-
-/* main */
-.addAwardItem__main {
-  margin: 24px 0;
-}
-
-/* item list */
-.addAwardItem__list {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.addAwardItem__card {
-  margin: 10px;
-  cursor: pointer;
-  color: white;
-}
-
-.addAwardItem__card__thumbnail {
-  width: 200px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 4px;
-}
-
-/* 비디오 선택 후 어워드와 연결하는 부분 */
-.addAwardItem__match__video {
-  display: flex;
-}
-
-.addAwardItem__video__contentsWrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  color: white;
-  margin-left: 0.75rem;
-}
-.addAwardItem__reselect__button {
-  color: white;
-  background-color: #e67e22;
-  padding: 4px 8px;
-  border-radius: 4px;
-}
-
-.addAwardItem__match__form::before {
-  content: '';
-  display: block;
-  border-bottom: 1px solid #95a5a6;
-  opacity: 0.7;
-  margin: 10px 0;
 }
 
 /* footer */
@@ -178,7 +53,7 @@ button {
   justify-content: center;
   width: max-content;
   border-radius: 4px;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .pagination__list {
@@ -202,27 +77,6 @@ button {
 }
 
 .isSelected {
-  color: #ecf0f1;
-  background-color: #109ba5;
-  border: 1px solid #109ba5;
-}
-
-.match__submit__wrapper {
-  text-align: center;
-  max-width: 450px;
-  margin-top: 1rem;
-}
-
-.match__submit__button {
-  width: 8rem;
-  border: 1px solid #ecf0f1;
-  background: #ecf0f1;
-  border-radius: 4px;
-  padding: 8px 8px;
-  font-weight: 600;
-}
-
-.match__submit__button:hover {
   color: #ecf0f1;
   background-color: #109ba5;
   border: 1px solid #109ba5;

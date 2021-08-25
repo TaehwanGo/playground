@@ -15,42 +15,28 @@
   </head>
   <body>
     <div class="addAwardItem__layer">
-      <section class="addAwardItem__section addAwardItem__container">
-        <main class="addAwardItem__main">
-          <ul class="addAwardItem__list">
-            <li class="addAwardItem__card">
-              <img
-                class="addAwardItem__card__thumbnail"
-                src="https://t1.daumcdn.net/thumb/R720x0/?fname=http://t1.daumcdn.net/brunch/service/user/kFj/image/bNIph_viHW7uwFlp_jXbf-kK07E.jpg"
-                alt="thumb nail"
-              />
-              <h5 class="addAwardItem__card__title">알바천국</h5>
-              <span class="addAwardItem__card__onAirDate">20210824</span>
-            </li>
+      <main class="addAwardItem__main"></main>
+      <footer class="addAwardItem__footer">
+        <ul id="addAwardItemPagination" class="addAwardItem__pagination">
+          <li id="buttonFirstPage" class="pagination__button">First</li>
+          <li id="buttonPreviousTermPage" class="pagination__button">
+            <i class="fas fa-angle-double-left"></i>
+          </li>
+          <li id="buttonPreviousPage" class="pagination__button">
+            <i class="fas fa-chevron-left"></i>
+          </li>
+          <ul id="paginationList" class="pagination__list">
+            <li class="pagination__button">1</li>
           </ul>
-        </main>
-        <footer class="addAwardItem__footer">
-          <ul id="addAwardItemPagination" class="addAwardItem__pagination">
-            <li id="buttonFirstPage" class="pagination__button">First</li>
-            <li id="buttonPreviousTermPage" class="pagination__button">
-              <i class="fas fa-angle-double-left"></i>
-            </li>
-            <li id="buttonPreviousPage" class="pagination__button">
-              <i class="fas fa-chevron-left"></i>
-            </li>
-            <ul id="paginationList" class="pagination__list">
-              <li class="pagination__button">1</li>
-            </ul>
-            <li id="buttonNextPage" class="pagination__button">
-              <i class="fas fa-chevron-right"></i>
-            </li>
-            <li id="buttonNextTermPage" class="pagination__button">
-              <i class="fas fa-angle-double-right"></i>
-            </li>
-            <li id="buttonLastPage" class="pagination__button">Last</li>
-          </ul>
-        </footer>
-      </section>
+          <li id="buttonNextPage" class="pagination__button">
+            <i class="fas fa-chevron-right"></i>
+          </li>
+          <li id="buttonNextTermPage" class="pagination__button">
+            <i class="fas fa-angle-double-right"></i>
+          </li>
+          <li id="buttonLastPage" class="pagination__button">Last</li>
+        </ul>
+      </footer>
     </div>
   </body>
 </html>
