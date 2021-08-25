@@ -1,71 +1,174 @@
-var current_page = 1;
-var records_per_page = 3;
+import { data } from './dummyList.js';
 
-var objJson = [
-  { adName: 'AdName 1' },
-  { adName: 'AdName 2' },
-  { adName: 'AdName 3' },
-  { adName: 'AdName 4' },
-  { adName: 'AdName 5' },
-  { adName: 'AdName 6' },
-  { adName: 'AdName 7' },
-  { adName: 'AdName 8' },
-  { adName: 'AdName 9' },
-  { adName: 'AdName 10' },
-]; // Can be obtained from another source, such as your objJson variable
+const addAwardItemLayer = document.querySelector('.addAwardItem__layer');
+const addAwardItemCloseButton = document.querySelector(
+  '.addAwardItem__close__button',
+);
+const addAwardItemList = document.querySelector('.addAwardItem__list');
+const addAwardItemMatch = document.querySelector('.addAwardItem__match');
+const addAwardItemVideoThumbnail = document.querySelector(
+  '#addAwardItemVideoThumbnail',
+);
+const addAwardItemVideoTitle = document.querySelector(
+  '#addAwardItemVideoTitle',
+);
+const addAwardItemVideoOnAirDate = document.querySelector(
+  '#addAwardItemVideoOnAirDate',
+);
+const addAwardItemPagination = document.querySelector(
+  '#addAwardItemPagination',
+);
+const addAwardItemSearchInput = document.querySelector(
+  '#addAwardItemSearchInput',
+);
+const formErrorMessage = document.querySelector('#formErrorMessage');
+const addAwardItemSearchCategory = document.querySelector(
+  '#addAwardItemSearchCategory',
+);
+const paginationList = document.querySelector('#paginationList');
+const buttonFirstPage = document.querySelector('#buttonFirstPage');
+const buttonNextPage = document.querySelector('#buttonNextPage');
+const buttonPreviousPage = document.querySelector('#buttonPreviousPage');
+const buttonNextTermPage = document.querySelector('#buttonNextTermPage');
+const buttonPreviousTermPage = document.querySelector(
+  '#buttonPreviousTermPage',
+);
+const buttonLastPage = document.querySelector('#buttonLastPage');
 
-function prevPage() {
-  if (current_page > 1) {
-    current_page--;
-    changePage(current_page);
+// list param data
+let currentPage = 1; // PageNum
+
+// pagination rendering을 위한 data
+let totalPage = 1; // Math.ceil(TotalCount/iPagesize)
+
+function blockButtonsCannotGoToPage() {
+  // 초기화
+  // buttonFirstPage.style.pointerEvents = 'auto'; // first
+  // buttonPreviousTermPage.style.pointerEvents = 'auto'; // <<
+  // buttonPreviousPage.style.pointerEvents = 'auto'; // <
+  // buttonNextPage.style.pointerEvents = 'auto'; // >
+  // buttonNextTermPage.style.pointerEvents = 'auto'; // >>
+  // buttonLastPage.style.pointerEvents = 'auto'; // last
+  // 아에 없애기
+  buttonFirstPage.style.display = 'list-item'; // first
+  buttonPreviousTermPage.style.display = 'list-item'; // <<
+  buttonPreviousPage.style.display = 'list-item'; // <
+  buttonNextPage.style.display = 'list-item'; // >
+  buttonNextTermPage.style.display = 'list-item'; // >>
+  buttonLastPage.style.display = 'list-item'; // last
+
+  if (currentPage === 1) {
+    // buttonFirstPage.style.pointerEvents = 'none'; // first
+    // buttonPreviousPage.style.pointerEvents = 'none'; // <
+    //
+    buttonFirstPage.style.display = 'none'; // first
+    buttonPreviousPage.style.display = 'none'; // <
+  }
+
+  if (currentPage <= 10) {
+    // buttonPreviousTermPage.style.pointerEvents = 'none'; // <<
+    //
+    buttonPreviousTermPage.style.display = 'none'; // <<
+  }
+
+  if (currentPage === totalPage) {
+    // buttonNextPage.style.pointerEvents = 'none'; // >
+    // buttonLastPage.style.pointerEvents = 'none'; // last
+    //
+    buttonNextPage.style.display = 'none'; // >
+    buttonLastPage.style.display = 'none'; // last
+  }
+
+  if (currentPage + 10 > totalPage) {
+    // buttonNextTermPage.style.pointerEvents = 'none'; // >>
+    buttonNextTermPage.style.display = 'none'; // >>
   }
 }
 
-function nextPage() {
-  if (current_page < numPages()) {
-    current_page++;
-    changePage(current_page);
+function setPagination(data) {
+  console.log('setPagination', data);
+  const { TotalCount, iPageTerm, iPage, iPageSize } = data;
+  totalPage = Math.ceil(TotalCount / iPageSize);
+  let firstRenderPage = Math.floor((iPage - 1) / 10) * 10 + 1;
+  let lastRenderPage = 1;
+
+  if (totalPage <= iPageTerm) {
+    lastRenderPage = totalPage;
+  }
+  if (totalPage > iPageTerm) {
+    lastRenderPage = firstRenderPage + iPageTerm - 1;
+    if (currentPage + 10 >= totalPage) {
+      lastRenderPage = totalPage;
+    }
+  }
+  renderPagination(firstRenderPage, lastRenderPage); // totalPage
+
+  // 이전이나 다음 페이지가 없는 경우 버튼 막기
+  blockButtonsCannotGoToPage();
+}
+
+async function addAwardItems() {
+  // render pagination
+  setPagination(data);
+
+  // 현재 페이지를 버튼 색상에 반영
+  checkSelectedPageButton();
+}
+
+function renderPagination(firstPage, lastPage) {
+  paginationList.innerHTML = '';
+  for (let i = firstPage; i <= lastPage; i++) {
+    paginationList.innerHTML += String.raw`
+      <li class="pagination__button">${i}</li>
+    `;
   }
 }
 
-function changePage(page) {
-  var btn_next = document.getElementById('btn_next');
-  var btn_prev = document.getElementById('btn_prev');
-  var listing_table = document.getElementById('listingTable');
-  var page_span = document.getElementById('page');
+function checkSelectedPageButton() {
+  // console.log('checkSelectedPageButton');
+  // console.log(paginationList.children);
+  const buttonList = paginationList.children;
 
-  // Validate page
-  if (page < 1) page = 1;
-  if (page > numPages()) page = numPages();
-
-  listing_table.innerHTML = '';
-
-  for (
-    var i = (page - 1) * records_per_page;
-    i < page * records_per_page && i < objJson.length;
-    i++
-  ) {
-    listing_table.innerHTML += objJson[i].adName + '<br>';
-  }
-  page_span.innerHTML = page + '/' + numPages();
-
-  if (page == 1) {
-    btn_prev.style.visibility = 'hidden';
-  } else {
-    btn_prev.style.visibility = 'visible';
-  }
-
-  if (page == numPages()) {
-    btn_next.style.visibility = 'hidden';
-  } else {
-    btn_next.style.visibility = 'visible';
+  for (let i = 0; i < buttonList.length; i++) {
+    // console.log('buttonList[i].innerHTML', buttonList[i].innerHTML);
+    if (currentPage === +buttonList[i].innerHTML) {
+      buttonList[i].classList.add('isSelected');
+    } else {
+      buttonList[i].classList.remove('isSelected');
+    }
   }
 }
 
-function numPages() {
-  return Math.ceil(objJson.length / records_per_page);
+function goToThePage(pageNum) {
+  console.log('goToThePage', pageNum);
+  // page에 해당하는 data 가져오기
+  currentPage = pageNum; // page number 공유
+
+  addAwardItems();
 }
 
-window.onload = function () {
-  changePage(1);
-};
+function handleNumberButtonClick(event) {
+  if (event.target.matches('.pagination__button')) {
+    console.log(event.target.innerHTML);
+    goToThePage(+event.target.innerHTML);
+  }
+}
+
+function addAwardItemInit() {
+  addAwardItems();
+  buttonFirstPage.addEventListener('click', () => goToThePage(1));
+  buttonNextPage.addEventListener('click', () => goToThePage(++currentPage));
+  buttonPreviousPage.addEventListener('click', () =>
+    goToThePage(--currentPage),
+  );
+  buttonNextTermPage.addEventListener('click', () =>
+    goToThePage((currentPage += 10)),
+  );
+  buttonPreviousTermPage.addEventListener('click', () =>
+    goToThePage((currentPage -= 10)),
+  );
+  paginationList.addEventListener('click', handleNumberButtonClick);
+  buttonLastPage.addEventListener('click', () => goToThePage(totalPage));
+}
+
+addAwardItemInit();
