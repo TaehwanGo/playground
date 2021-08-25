@@ -1,30 +1,4 @@
 import { data } from './dummyList.js';
-
-const addAwardItemLayer = document.querySelector('.addAwardItem__layer');
-const addAwardItemCloseButton = document.querySelector(
-  '.addAwardItem__close__button',
-);
-const addAwardItemList = document.querySelector('.addAwardItem__list');
-const addAwardItemMatch = document.querySelector('.addAwardItem__match');
-const addAwardItemVideoThumbnail = document.querySelector(
-  '#addAwardItemVideoThumbnail',
-);
-const addAwardItemVideoTitle = document.querySelector(
-  '#addAwardItemVideoTitle',
-);
-const addAwardItemVideoOnAirDate = document.querySelector(
-  '#addAwardItemVideoOnAirDate',
-);
-const addAwardItemPagination = document.querySelector(
-  '#addAwardItemPagination',
-);
-const addAwardItemSearchInput = document.querySelector(
-  '#addAwardItemSearchInput',
-);
-const formErrorMessage = document.querySelector('#formErrorMessage');
-const addAwardItemSearchCategory = document.querySelector(
-  '#addAwardItemSearchCategory',
-);
 const paginationList = document.querySelector('#paginationList');
 const buttonFirstPage = document.querySelector('#buttonFirstPage');
 const buttonNextPage = document.querySelector('#buttonNextPage');
