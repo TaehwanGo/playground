@@ -11,16 +11,16 @@ const Home = () => {
     setText('qwer');
     console.log(text);
     console.log(count);
-  }, [count]);
+  }, [setCount]);
   const onClickBtn = () => {
-    setCount((count) => (count = count + 1));
+    setCount(count => (count = count + 1));
     // console.log('count : ', count);
   };
   return (
     <AppLayout>
       {console.log('rendering text', text)}
       {/* {console.log('count : ', count)} */}
-      <MainSlider />
+      {/* <MainSlider /> */}
       <button onClick={onClickBtn}>click {count}</button>
     </AppLayout>
   );
