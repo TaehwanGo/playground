@@ -1,0 +1,21 @@
+body {
+  height: 100%;
+}
+
+.award__main {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: whitesmoke;
+}
+
+.award__details {
+  width: 400px;
+  background-color: wheat;
+  height: 150vh;
+}
+
+.award__items {
+  width: 400px;
+  background-color: tomato;
+  height: 150vh;
+}
