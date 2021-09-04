@@ -1,0 +1,49 @@
+html,
+body {
+  height: 100%;
+}
+
+.container {
+  margin: 20px auto 0;
+  max-width: 500px;
+  word-wrap: break-word;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin: 5px 0;
+  padding: 0 20px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 3px;
+  background: #136a8a;
+  background: -webkit-linear-gradient(to right, #267871, #136a8a);
+  background: linear-gradient(to right, #267871, #136a8a);
+  color: #fff;
+  list-style: none;
+  transition: all 300ms;
+}
+
+li.drag-sort-active {
+  opacity: 0.9;
+  /* background: transparent;
+  color: transparent;
+  border: 1px solid #4ca1af; */
+}
+
+span.drag-sort-active {
+  background: transparent;
+  color: transparent;
+}
+
+.move-animation {
+  /* transform: translate3d(0px, 0px, 0px); */
+}

@@ -249,4 +249,40 @@ const dropzone = event.target.closest('.example-dropzone');
 
 - [list sorting with drag and drop](https://stackoverflow.com/questions/44415228/list-sorting-with-html5-dragndrop-drop-above-or-below-depending-on-mouse)
 
+## Drag Sort
+
+### document.elementFromPoint(x, y)
+
+- 화면의 x, y에(relative to the viewport) 위치한 element를 return
+
+### Node.insertBefore()
+
+```javascript
+let insertedNode = parentNode.insertBefore(newNode, referenceNode);
+```
+
+- The Node.insertBefore() method inserts a node before a reference node as a child of a specified parent node.
+
+### swap animation
+
+- event.clientY : event.target안에서 x, y 값
+
+- element.getBoundingClientRect() : 화면안에서 엘리먼트가 위치한 곳의 좌표
+
+### 참고 문헌
+
+- https://codepen.io/fitri/pen/VbrZQm
+- https://developer.mozilla.org/en-US/docs/Web/API/Document/elementFromPoint
+- https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore
+- [swap animation](https://stackoverflow.com/questions/49488035/animate-dom-elements-swapping)
+- https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect
+
+## another example
+
+- https://stackoverflow.com/questions/65059542/drag-and-drop-animation-vanillajs
+
+## re ordering using react
+
+- https://dev.to/colinmcd01/drag-drop-re-ordering-using-html-and-react-974
+
 </details>
