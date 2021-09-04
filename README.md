@@ -189,6 +189,8 @@ drop down menu without javascript
 <details>
 <summary>drag and drop</summary>
 
+## tutorial
+
 ### 1. draggable attribute
 
 ```html
@@ -233,5 +235,18 @@ const dropzone = event.target.closest('.example-dropzone');
 ### 참고 문헌
 
 - [drag-and-drop-vanillaJS](https://www.digitalocean.com/community/tutorials/js-drag-and-drop-vanilla-js)
+
+## sorting list with drag and drop
+
+### drag and drop event 이해
+
+- dragstart : 클릭을 꾹 누르고 있으면 dragstart 이벤트가 발생함
+- dragover : drag를 할 수 있다는 표시가 생김
+- dragenter : 해당 영역에 들어오면 발생
+- dragleave : 해당 영역을 벗어나면 발생
+
+### 참고 문헌
+
+- [list sorting with drag and drop](https://stackoverflow.com/questions/44415228/list-sorting-with-html5-dragndrop-drop-above-or-below-depending-on-mouse)
 
 </details>
