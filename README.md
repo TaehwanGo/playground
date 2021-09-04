@@ -185,3 +185,53 @@ drop down menu without javascript
 - [select MDN](https://developer.mozilla.org/ko/docs/Web/HTML/Element/select)
 
 </details>
+
+<details>
+<summary>drag and drop</summary>
+
+### 1. draggable attribute
+
+```html
+<div draggable="true">draggable</div>
+```
+
+- draggable="true"로 지정하면 해당 element를 드래그하면 따라오는 그림이 생긴다
+
+### 2. Handling drag and drop events with javascript
+
+#### drag and drop의 순서 : dragstart -> dragover -> drop
+
+To trigger an action on drag or drop on DOM elements, we’ll need to utilize the Drag and Drop API:
+
+- ondragstart: This event handler will be attached to our draggable element and fire when a dragstart event occurs.
+- ondragover: This event handler will be attached to our dropzone element and fire when a dragover event occurs.
+- ondrop: This event handler will also be attached to our dropzone element and fire when a drop event occurs.
+
+#### HTML에 event callback함수를 직접 추가하면 동적으로 자바스크립트로 HTML을 넣어도 event callback함수를 쉽게 추가할 수 있다.
+
+```html
+<div
+  id="draggable-1"
+  class="example-draggable"
+  draggable="true"
+  ondragstart="onDragStart(event)"
+>
+  draggable
+</div>
+```
+
+#### function onDrop(event)
+
+- dropzone을 설정 시 원하는 박스에 넣으려면 closest로 타겟을 변경해줘야 함
+
+```javascript
+const dropzone = event.target.closest('.example-dropzone');
+```
+
+그렇지 않으면 child에 append가 되어버림
+
+### 참고 문헌
+
+- [drag-and-drop-vanillaJS](https://www.digitalocean.com/community/tutorials/js-drag-and-drop-vanilla-js)
+
+</details>
