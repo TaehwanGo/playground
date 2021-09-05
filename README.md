@@ -287,6 +287,49 @@ let insertedNode = parentNode.insertBefore(newNode, referenceNode);
 
 ## animation
 
+### 흐름
+
+#### 1. 위치 기억
+
+- drag event 발생한 객체의 위치를 기억
+
+#### 2. 이동
+
+- 시작점과 현재 위치의 차이만큼 시작점에 더한 값이 이동해야할 위치
+  - 방법 1
+    - 두 거리를 빼서 그 만큼 이동
+      - 예상 문제점 이동 중 또 이벤트가 발생되면서 중간으로 수렴
+  - 방법 2
+    - 고정된 거리만큼 이동
+      - 예상 문제점 이동 중 또 이벤트가 발생되면서 중간으로 수렴
+      - 단, 위와 아래 방향을 잘 찾을 수 있어야 함
+
+#### 3. 위치파악
+
+- 드래그 중인 요소가 다른 요소를 만났을 때 그 위치로 원본이 이동
+
+#### 4. 위치 변경
+
+#### 5. 드롭
+
+- 드롭의 순간에서 최종적으로 DOM을 교체하고 애니메이션이 적용된 모슨 요소들의 스타일을 제거
+  - DOM 교체를 Node.insertBefore()를 사용할 건지 아닌지 생각해봐야 함
+
+### 분석
+
+```html
+<li
+  class="item"
+  draggable="true"
+  ondragstart="onDragStart(event)"
+  ondragover="onDragOver(event)"
+>
+  Draggable Element One
+</li>
+```
+
+- onDragStart의 이름을 ondragstart로 하면 자기 자신을 실행하면서 Maximum call stack size exceeded 에러가 발생한다.
+
 ### 참고 문헌
 
 - https://github.com/woowa-techcamp-2020/todo-14/blob/main/doc/Drag-and-Drop-with-Animation.md
