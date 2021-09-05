@@ -285,4 +285,19 @@ let insertedNode = parentNode.insertBefore(newNode, referenceNode);
 
 - https://dev.to/colinmcd01/drag-drop-re-ordering-using-html-and-react-974
 
+## animation
+
+### 참고 문헌
+
+- https://github.com/woowa-techcamp-2020/todo-14/blob/main/doc/Drag-and-Drop-with-Animation.md
+
+## sortableJS
+
+- 라이브러리 쓰니까 되게 쉽게 되는 것 같아 보이네
+
+### 참고문헌
+
+- https://www.codingnepalweb.com/drag-drop-list-or-draggable-list-javascript/
+- https://cdnjs.com/libraries/Sortable
+
 </details>
