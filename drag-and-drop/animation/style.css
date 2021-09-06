@@ -30,7 +30,6 @@ body {
   border-radius: 3px;
   align-items: center;
   justify-content: space-between;
-  transition: transform 300ms;
 }
 .wrapper .item:last-child {
   margin-bottom: 0px;

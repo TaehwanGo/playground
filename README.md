@@ -303,6 +303,9 @@ let insertedNode = parentNode.insertBefore(newNode, referenceNode);
     - 고정된 거리만큼 이동
       - 예상 문제점 이동 중 또 이벤트가 발생되면서 중간으로 수렴
       - 단, 위와 아래 방향을 잘 찾을 수 있어야 함
+- 두 거리를 뺀 거리만큼 하되, onDragEnter에서 이동이 이루어 지는데 이동 중간에 다시 onDragEnter이벤트가 발생되면서 중간에 수렴하거나 점점 멀어짐
+  - transition start와 end에서 flag를 만들어서 애니메이션 중간엔 onDragEnter 함수가 실행되지 않도록 함
+    - 우려되는 점 : 빠르게 스크롤을 내릴 경우 비정상 적으로 작동할 가능성이 있음
 
 #### 3. 위치파악
 

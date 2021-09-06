@@ -13,16 +13,7 @@
     <title>drag and drop animation with vanillaJS</title>
   </head>
   <body>
-    <ul class="wrapper" ondragover="onDragOver(event)">
-      <!-- onpointerenter="onPointerEnter(event)"
-      onpointermove="onpointermove(event)"
-        onpointerdown="onpointerdown(event)"
-        
-        ontransitionend="ontransitionend(event)"
-        ontransitionstart="ontransitionstart(event)"
-        ondrop="ondrop(event)"
-        onpointerup="onpointerup(event)"
-    -->
+    <ul id="container" class="wrapper" ondragover="onDragOver(event)">
       <li
         data-id="1"
         class="item"
@@ -31,7 +22,6 @@
         ondragover="onDragOver(event)"
         ondragenter="onDragEnter(event)"
         ondrop="onDrop(event)"
-        onpointerenter="onPointerEnter(event)"
         ontransitionend="onTransitionEnd(event)"
         ontransitionstart="onTransitionStart(event)"
         onpointerdown="onPointerDown(event)"
@@ -48,7 +38,6 @@
         ondragover="onDragOver(event)"
         ondragenter="onDragEnter(event)"
         ondrop="onDrop(event)"
-        onpointerenter="onPointerEnter(event)"
         ontransitionend="onTransitionEnd(event)"
         ontransitionstart="onTransitionStart(event)"
         onpointerdown="onPointerDown(event)"
