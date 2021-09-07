@@ -333,6 +333,10 @@ let insertedNode = parentNode.insertBefore(newNode, referenceNode);
 
 - onDragStart의 이름을 ondragstart로 하면 자기 자신을 실행하면서 Maximum call stack size exceeded 에러가 발생한다.
 
+### 애니메이션 도중에 모션이 꼬이는 현상
+
+- 큐에 넣고 애니메이션 시간 동안 같은 객체라면 다시 이벤트가 발생되지 않도록 해보면 어떨까
+
 ### 참고 문헌
 
 - https://github.com/woowa-techcamp-2020/todo-14/blob/main/doc/Drag-and-Drop-with-Animation.md
@@ -345,5 +349,27 @@ let insertedNode = parentNode.insertBefore(newNode, referenceNode);
 
 - https://www.codingnepalweb.com/drag-drop-list-or-draggable-list-javascript/
 - https://cdnjs.com/libraries/Sortable
+
+## youtubeHint
+
+- 유튜브 영상 참고해서 만들기
+
+### positionItems
+
+```javascript
+function positionItems() {
+  let itemsList = document.querySelectorAll('.items .item');
+  let indexCounter = 0;
+  itemsList.forEach(item => {
+    item.style.top = 70 * indexCounter + indexCounter * 10 + 'px';
+    // 기본적으로 위치는 동일하지만(absolute) 각각 자바스크립트로 위치를 조정함
+    indexCounter++;
+  });
+}
+```
+
+### 참고문헌
+
+- https://youtu.be/PJYFQYyzRgg
 
 </details>
