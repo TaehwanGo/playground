@@ -384,6 +384,11 @@ function positionItems() {
 - [ ] 코드 완전 분석
 - [ ] 현재 마우스 포인터가 절반 이상 넘어가야 이동되는데 진입하자마자 이동되도록 변경해야 함
 
+### 완전 분석
+
+- draggable을 true로 주면 mouse up, mouse move가 동작을 안함
+  - 우선 지금 따라한 것을 완전히 이해한 다음 draggable을 사용했을 때 구현방법을 생각해보자
+
 ### 참고문헌
 
 - https://youtu.be/PJYFQYyzRgg

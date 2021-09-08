@@ -4,13 +4,13 @@ let diff = { x: null, y: null }; // So that mouse can drag item on the correct s
 let mouseDown = false; // Needs to be true for logic in 'mouseMove' event listener to be activated
 let selectedItem = null; // Allows clicked on item to be tracked in 'mouseMove' event listener
 let resetTransition = false; // Cooldown to prevent position errors
-let transitionTime = 400; // In milliseconds
+let transitionTime = 300; // In milliseconds
 const itemsEle = document.querySelector('.items');
 
 const numOfItems = document.querySelectorAll('.items .item').length;
 // Set fixed height of items container
 // console.log(numOfItems);
-itemsEle.style.height = numOfItems * 70 + numOfItems + 'px';
+itemsEle.style.height = numOfItems * 70 + numOfItems * 10 + 'px';
 
 function positionItems(insertIndex = null) {
   let itemsList = document.querySelectorAll('.items .item');
@@ -27,7 +27,7 @@ function positionItems(insertIndex = null) {
   });
 }
 
-positionItems();
+positionItems(); // item의 위치를 결정하는 함수
 
 function positionItemsInOrder() {
   let itemsList = document.querySelectorAll('.items .item');
@@ -115,8 +115,8 @@ addEventListener('mousemove', e => {
     );
     let afterMiddle = pos.y > afterItem.offsetTop + afterItem.clientHeight / 2;
     if (afterMiddle) {
-      positionItems(orderOfSelectedItem + 1);
-      selectedItem.setAttribute('order', orderOfSelectedItem + 1);
+      positionItems(orderOfSelectedItem + 1); // 없으면 위로 갈땐 가지는데 아래로 갈때 한칸씩 감
+      selectedItem.setAttribute('order', orderOfSelectedItem + 1); // 없으면 위로 갈땐 가지는데 아래로 갈때 한칸씩 감
       return;
     }
   }
