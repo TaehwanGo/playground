@@ -368,6 +368,22 @@ function positionItems() {
 }
 ```
 
+### 좌표 관련
+
+#### offsetTop
+
+- parentNode로 부터 떨어진 거리
+- 만약 parentNode가 없다면 body(0, 0)에서 떨어진 거리
+
+#### event.clientY
+
+- 현재 화면(스크롤에 상관없이 상대적인)의 마우스 좌표의 Y값
+
+### Things to do
+
+- [ ] 코드 완전 분석
+- [ ] 현재 마우스 포인터가 절반 이상 넘어가야 이동되는데 진입하자마자 이동되도록 변경해야 함
+
 ### 참고문헌
 
 - https://youtu.be/PJYFQYyzRgg
