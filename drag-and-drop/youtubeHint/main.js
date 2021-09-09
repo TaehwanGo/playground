@@ -16,6 +16,7 @@ function positionItems(insertIndex = null) {
   let itemsList = document.querySelectorAll('.items .item');
   itemsList = Array.prototype.slice.call(itemsList);
   itemsList = itemsList.filter(item => item.getAttribute('selected') !== 'yes');
+  console.log('except select itemsList', itemsList);
   let indexCounter = 0;
   itemsList.forEach(item => {
     if (insertIndex === indexCounter + 1) {

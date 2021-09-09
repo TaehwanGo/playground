@@ -337,9 +337,22 @@ let insertedNode = parentNode.insertBefore(newNode, referenceNode);
 
 - 큐에 넣고 애니메이션 시간 동안 같은 객체라면 다시 이벤트가 발생되지 않도록 해보면 어떨까
 
+### Element.children vs Node.childNodes
+
+#### Node.childNodes
+
+- 자식 노드가 포함된 NodeList를 반환
+- HTMLElement뿐만 아니라 텍스트 등도 포함
+
+#### Element.children
+
+- 현재 요소의 자식 요소가 포함된 HTMLCollection을 반환
+- 비 요소 노드는 모두 제외 됨
+
 ### 참고 문헌
 
 - https://github.com/woowa-techcamp-2020/todo-14/blob/main/doc/Drag-and-Drop-with-Animation.md
+- [Element.children vs Node.childNodes](https://hogni.tistory.com/122)
 
 ## sortableJS
 
@@ -398,5 +411,16 @@ function positionItems() {
 ### 참고문헌
 
 - https://youtu.be/PJYFQYyzRgg
+
+# React
+
+## CRA
+
+- project name에 대문자가 포함될 수 없음
+
+### drag and drop
+
+- https://reactjsexample.com/a-react-component-built-on-top-of-sortable/
+- @type/sortable
 
 </details>

@@ -6,6 +6,23 @@ let originBoxElement;
 let otherBoxElement;
 let isTransition = false;
 const container = document.querySelector('#container');
+console.log('container', container);
+
+console.log('container.children', container.children);
+const liList = container.children;
+console.log('liList', liList);
+let liArray = Array.prototype.slice.call(liList);
+console.log(liArray);
+liArray.reverse();
+liArray.forEach(item => {
+  item.addEventListener('dragstart', onDragStart);
+  item.addEventListener('dragenter', onDragEnter);
+  console.log(item);
+  container.append(item); // 똑같은 DOM은 추가 되면 중복이 제거 됨
+});
+// document.querySelectorAll('.item').forEach((item) => {
+//   item.addEventListener('dragstart', onDragStart);
+// })
 
 function onDragStart(event) {
   console.log('ondragstart');
@@ -19,12 +36,14 @@ function onDragStart(event) {
 }
 
 function onDragEnter(event) {
-  if (isTransition) {
-    return;
-  }
+  // if (isTransition) {
+  //   return;
+  // }
   console.log('ondragenter');
+  console.log('onDragEventTarget', event.target);
   const li = event.target.closest('li');
-  otherBoxElement = li;
+  let currentEventTarget = li;
+
   const { top, left, height } = li.getBoundingClientRect();
   otherBoxTop = top;
   //   console.log('event.target.dataset.id', li.dataset.id);
@@ -35,9 +54,9 @@ function onDragEnter(event) {
     console.log('다른 박스에 진입');
     console.log('distance', distance);
     // 이동 중 다시 이동하지 않도록 해야 함
-    originBoxElement.style.transition = `transform 300ms`;
-    li.style.transform = `translateY(${distance}px)`;
-    originBoxElement.style.transform = `translateY(${-distance}px)`;
+    // originBoxElement.style.transition = `transform 300ms`;
+    // li.style.transform = `translateY(${distance}px)`;
+    // originBoxElement.style.transform = `translateY(${-distance}px)`;
     // li.style.transform = `translate3d(0, ${distance}px, 0)`;
     // originBoxElement.style.transform = `translate3d(0, ${-distance}px, 0)`;
     // console.log('originBoxElement', originBoxElement);
