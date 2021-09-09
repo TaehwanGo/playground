@@ -31,8 +31,11 @@ positionItems(); // item의 위치를 결정하는 함수
 
 function positionItemsInOrder() {
   let itemsList = document.querySelectorAll('.items .item');
-  itemsList = Array.prototype.slice.call(itemsList);
+  console.log('positionItemsInOrder itemsList', itemsList);
+  itemsList = Array.prototype.slice.call(itemsList); // NodeList를 Array로 복사 후 return
+  console.log('positionItemsInOrder itemsList', itemsList);
   itemsList = itemsList.sort((a, b) => {
+    // 이거 쓸만하다. 근데 order 속성을 박아야 함
     return Number(a.getAttribute('order')) > Number(b.getAttribute('order'))
       ? 1
       : -1;
@@ -52,11 +55,15 @@ function positionItemsInOrder() {
   // When transition is over
   setTimeout(() => {
     while (itemsEle.firstChild) {
+      // itemsEle의 children 수 만큼 반복하면서 싹다 지움
+      // console.log('itemsEle.lastChild', itemsEle.lastChild);
       itemsEle.removeChild(itemsEle.lastChild);
     }
     itemsList.forEach(item => {
+      // 그리고 Array로 복사한 것으로 싹 집어 넣음
+      // console.log('itemsList.forEach(item', item);
       itemsEle.append(item);
-    });
+    }); // DOM 재배치 및 order 재 정렬
     resetTransition = false;
   }, transitionTime);
 }
@@ -64,7 +71,7 @@ function positionItemsInOrder() {
 document.querySelectorAll('.items .item').forEach((item, index) => {
   item.addEventListener('mousedown', e => {
     console.log();
-    if (!pos.x || resetTransition) return;
+    if (!pos.x || resetTransition) return; // 애니메이션 동안 마우스로 한번 더 집는 것은 불가능
     (mouseDown = true), (selectedItem = item);
     console.log('item.offsetTop', item.offsetTop);
     console.log('pos.y', pos.y); // event.clientY - container.offsetTop
@@ -100,7 +107,7 @@ addEventListener('mousemove', e => {
     let beforeItem = document.querySelector(
       `.items .item[order*="${orderOfSelectedItem - 1}"]`,
     );
-    console.log('beforeItem', beforeItem);
+    // console.log('beforeItem', beforeItem);
     let beforeMiddle =
       pos.y < beforeItem.offsetTop + beforeItem.clientHeight / 2;
     if (beforeMiddle) {

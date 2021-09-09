@@ -387,7 +387,13 @@ function positionItems() {
 ### 완전 분석
 
 - draggable을 true로 주면 mouse up, mouse move가 동작을 안함
+
   - 우선 지금 따라한 것을 완전히 이해한 다음 draggable을 사용했을 때 구현방법을 생각해보자
+
+- Array.prototype.slice()
+
+- 순서 정렬 : order에 따라 정렬하기 때문에 order를 사용하지 않는다면 쓸 수 없음
+- 애니메이션 시간 동안 resetTransition true, false 설정하는 것 : 지속 시간 동안 다시 줍는 것 막음
 
 ### 참고문헌
 
