@@ -333,7 +333,7 @@ let insertedNode = parentNode.insertBefore(newNode, referenceNode);
 
 - onDragStart의 이름을 ondragstart로 하면 자기 자신을 실행하면서 Maximum call stack size exceeded 에러가 발생한다.
 
-### 애니메이션 도중에 모션이 꼬이는 현상
+#### 애니메이션 도중에 모션이 꼬이는 현상
 
 - 큐에 넣고 애니메이션 시간 동안 같은 객체라면 다시 이벤트가 발생되지 않도록 해보면 어떨까
 
@@ -348,6 +348,20 @@ let insertedNode = parentNode.insertBefore(newNode, referenceNode);
 
 - 현재 요소의 자식 요소가 포함된 HTMLCollection을 반환
 - 비 요소 노드는 모두 제외 됨
+
+#### 배열 내 순서 변경
+
+- https://zetawiki.com/wiki/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8_%EB%B0%B0%EC%97%B4_%EC%88%9C%EC%84%9C_%EB%B0%94%EA%BE%B8%EA%B8%B0
+  - temp를 하나 만들어서 둘의 값을 바꿔줌
+
+#### setTimeout은 비동기라서 아래로 지나간 다음 마지막에 실행 됨
+
+- 만약 setTimeout이랑 transition time이 완벽히 일치 하지 않는다면?
+  - transitionEnd event를 사용해서 해보자
+
+### 버그
+
+- 순서가 빠르게 순간적으로 여러번 바뀌는 현상
 
 ### 참고 문헌
 
