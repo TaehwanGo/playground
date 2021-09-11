@@ -354,19 +354,25 @@ let insertedNode = parentNode.insertBefore(newNode, referenceNode);
 - https://zetawiki.com/wiki/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8_%EB%B0%B0%EC%97%B4_%EC%88%9C%EC%84%9C_%EB%B0%94%EA%BE%B8%EA%B8%B0
   - temp를 하나 만들어서 둘의 값을 바꿔줌
 
-#### setTimeout은 비동기라서 아래로 지나간 다음 마지막에 실행 됨
+<!-- #### setTimeout은 비동기라서 아래로 지나간 다음 마지막에 실행 됨
 
 - 만약 setTimeout이랑 transition time이 완벽히 일치 하지 않는다면?
-  - transitionEnd event를 사용해서 해보자
+  - transitionEnd event를 사용해서 해보자 -->
 
 ### 버그
 
 - 순서가 빠르게 순간적으로 여러번 바뀌는 현상
 
+#### transition end에서 queue에 있는 객체를 하나씩 꺼내와서 실행해야 겠다.
+
 ### 참고 문헌
 
 - https://github.com/woowa-techcamp-2020/todo-14/blob/main/doc/Drag-and-Drop-with-Animation.md
 - [Element.children vs Node.childNodes](https://hogni.tistory.com/122)
+
+## inflearn과 비교
+
+- 선택하면 on_chosen 클래스가 li에 붙는데 css를 위한 것은 아닌 것 같다
 
 ## sortableJS
 
