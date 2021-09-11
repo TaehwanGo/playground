@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <script src="main.js" defer></script>
+    <title>drag and drop animation with vanillaJS</title>
+  </head>
+  <body>
+    <ul id="container" class="wrapper" ondragover="onDragOver(event)">
+      <li data-id="1" class="item" draggable="true">
+        <span class="text">Draggable Element One</span>
+        <i class="fas fa-bars"></i>
+      </li>
+      <li data-id="2" class="item" draggable="true">
+        <span class="text">Draggable Element Two</span>
+        <i class="fas fa-bars"></i>
+      </li>
+      <li data-id="3" class="item" draggable="true">
+        <span class="text">Draggable Element Three</span>
+        <i class="fas fa-bars"></i>
+      </li>
+    </ul>
+    <!-- <button onclick="test()">test</button> -->
+  </body>
+</html>

@@ -359,6 +359,22 @@ let insertedNode = parentNode.insertBefore(newNode, referenceNode);
 - 만약 setTimeout이랑 transition time이 완벽히 일치 하지 않는다면?
   - transitionEnd event를 사용해서 해보자 -->
 
+- 지금 liArray에서 순서를 바뀐 뒤 새로 넣는 방식이면 중간에 애니메이션이 사라짐
+  - order를 어딘가에 저장한다음 마지막에 최종적으로 바꿔주거나
+  - 바꾸는 방식 자체를 다르게 해야 함
+    - insertBefore ?
+
+#### Node.insertBefore() -> better solution : Node.after(), Node.before()
+
+- parentNode.insertBefore(newNode, referenceNode)
+
+  - referenceNode == (null or undefined) 이면 마지막에 추가 됨
+
+- 위 -> 아래
+- 아래 -> 위
+
+#### Node.after(), Node.before()
+
 ### 버그
 
 - 순서가 빠르게 순간적으로 여러번 바뀌는 현상
@@ -373,6 +389,7 @@ let insertedNode = parentNode.insertBefore(newNode, referenceNode);
 ## inflearn과 비교
 
 - 선택하면 on_chosen 클래스가 li에 붙는데 css를 위한 것은 아닌 것 같다
+- 브라우저에서 $0 은 선택된 element를 의미하는데 이게 자리가 바뀌면 다음 것으로 타겟이 옮겨진다.
 
 ## sortableJS
 
