@@ -438,6 +438,10 @@ function positionItems() {
 
 - project name에 대문자가 포함될 수 없음
 
+### 참고 문헌
+
+- https://openbase.com/js/react-sortablejs/documentation
+
 ### drag and drop
 
 - https://reactjsexample.com/a-react-component-built-on-top-of-sortable/
