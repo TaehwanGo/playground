@@ -542,6 +542,11 @@ function download() {
 }
 ```
 
+### 다운로드 시 파일명을 front에서 설정이 가능한가?
+
+- [안된다고 한다 서버에서 header에 content-disposition을 지정해야하는 듯](https://stackoverflow.com/questions/7526849/how-do-i-change-a-filename-on-download-with-javascript)
+- [서버 response에서 header에 content-disposition을 설정해줘야 함](https://stackoverflow.com/questions/7428831/javascript-rename-file-on-download/7429406)
+
 ### 참고 문헌
 
 - [HTML5 download 속성](https://brightcovekr.wordpress.com/2017/03/16/html5%EC%9D%98-download-%EC%86%8D%EC%84%B1%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%9C-%EB%B9%84%EB%94%94%EC%98%A4-%ED%8C%8C%EC%9D%BC-%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C-%EB%A7%81%ED%81%AC-%EC%9E%91/)
