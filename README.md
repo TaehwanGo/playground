@@ -393,7 +393,7 @@ let insertedNode = parentNode.insertBefore(newNode, referenceNode);
 function positionItems() {
   let itemsList = document.querySelectorAll('.items .item');
   let indexCounter = 0;
-  itemsList.forEach(item => {
+  itemsList.forEach((item) => {
     item.style.top = 70 * indexCounter + indexCounter * 10 + 'px';
     // 기본적으로 위치는 동일하지만(absolute) 각각 자바스크립트로 위치를 조정함
     indexCounter++;
@@ -469,7 +469,7 @@ const BasicFunction = () => {
       animation={200}
       delay={2}
     >
-      {state.map(item => (
+      {state.map((item) => (
         <div key={item.id}>{item.name}</div>
       ))}
     </ReactSortable>
@@ -478,5 +478,75 @@ const BasicFunction = () => {
 
 export default BasicFunction;
 ```
+
+</details>
+
+<details>
+<summary>download</summary>
+
+## 비디오 다운로드 구현
+
+### 1. HTML의 download 속성
+
+```html
+<!-- 저장하려는 파일이 동일URL인 경우만 가능 -->
+<a href="apple.png" download="새로운이름(사과)"></a>
+```
+
+- download 속성 없이도 a 태그에 href에 다운로드 URL을 넣어주면 다운로드가 된다
+- download 속성 : 파일이 서버안에 있어야 다운로드가 되는 것 같다.
+  - download only works for same-origin URLs, or the blob: and data: schemes.
+- 브라우저는 `<a>` 태그에 download 속성이 설정되어 있으면 링크가 가리키는 파일을 다운로드한다. 즉, 마치 링크 위에서 마우스 오른쪽 버튼을 클릭하고 "다른 이름으로 링크 저장"을 실행하는 것과 같다.
+- img의 경우 same-origin URL이 아니더라도 img를 a태그로 감싸면 download에 부여한 새로운 이름으로 저장할 수 있다.
+
+### 2. Javascript에서 텍스트 파일 생성 및 다운로드
+
+```javascript
+downloadFile() {
+  const blob = new Blob([this.content], {type: 'text/plain'})
+  const url = window.URL.createObjectURL(blob)
+  const a = document.createElement("a")
+  a.href = url
+  a.download = `${this.$store.state.nickname}_${this.title}.md`
+  a.click()
+  a.remove()
+  window.URL.revokeObjectURL(url);
+},
+```
+
+### 3. Axios 라이브러리르 사용하여 파일 다운로드
+
+#### Blob 이란
+
+- Binary Large Object : 바이너리 데이터를 저장할 수 있는 데이터 유형
+
+#### download code
+
+```javascript
+function download() {
+  axios({
+    url: 'https://source.unsplash.com/random/500x500',
+    // url: 'https://wetubetony.s3.ap-northeast-2.amazonaws.com/video/6a3261c1aae8da977fb6a4fc51dcc116', // CORS
+    method: 'GET',
+    responseType: 'blob',
+  }).then((response) => {
+    const url = window.URL.createObjectURL(new Blob([response.data]));
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', 'image.jpg');
+    // link.setAttribute('download', 'video.mp4');
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
+}
+```
+
+### 참고 문헌
+
+- [HTML5 download 속성](https://brightcovekr.wordpress.com/2017/03/16/html5%EC%9D%98-download-%EC%86%8D%EC%84%B1%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%9C-%EB%B9%84%EB%94%94%EC%98%A4-%ED%8C%8C%EC%9D%BC-%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C-%EB%A7%81%ED%81%AC-%EC%9E%91/)
+- [Javascript를 사용하여 파일 다운로드](https://www.delftstack.com/ko/howto/javascript/javascript-download/)
+- [a tag MDN](https://developer.mozilla.org/ko/docs/Web/HTML/Element/a)
+- [text download](https://velog.io/@unani92/JS-%EC%89%BD%EA%B3%A0-%EA%B0%84%EB%8B%A8%ED%95%9C-%ED%8C%8C%EC%9D%BC-%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0)
 
 </details>
