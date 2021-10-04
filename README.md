@@ -630,4 +630,8 @@ PayloadTooLargeError: request entity too large
 
 - https://velog.io/@gth1123/tinyMCE-WYSIWYG-%EC%82%AC%EC%9A%A9
 
+- npx create-react-app tinymce-react-demo -template typescript
+- cd tinymce-react-demo
+- npm install --save @tinymce/tinymce-react
+
 </details>
