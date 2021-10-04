@@ -628,6 +628,6 @@ PayloadTooLargeError: request entity too large
 
 ## tinyMCE 사용해보기
 
-- coming soon
+- https://velog.io/@gth1123/tinyMCE-WYSIWYG-%EC%82%AC%EC%9A%A9
 
 </details>
