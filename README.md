@@ -635,3 +635,15 @@ PayloadTooLargeError: request entity too large
 - npm install --save @tinymce/tinymce-react
 
 </details>
+
+<details>
+<summary>rerendering, component separation</summary>
+
+# 테스트 환경
+
+- next.js
+- dir : with-redux-app
+
+## re-rendering
+
+</details>
