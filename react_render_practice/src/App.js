@@ -1,6 +1,6 @@
 import React from 'react';
-// import { Name, NickName } from './info';
-import { Name, NickName } from './parents';
+import { Name, NickName } from './info';
+// import { Name, NickName } from './parents';
 
 function App() {
   return (
