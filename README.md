@@ -641,9 +641,12 @@ PayloadTooLargeError: request entity too large
 
 # 테스트 환경
 
-- next.js
-- dir : with-redux-app
+- npx create-react-app react_render_practice
 
 ## re-rendering
+
+### 참고
+
+- https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=pjt3591oo&logNo=221907792621
 
 </details>
