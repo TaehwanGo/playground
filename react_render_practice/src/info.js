@@ -19,10 +19,17 @@ const style = { margin: '10px', padding: '10px' };
 
 const StyledSpan = styled.span``;
 
+const StyledDiv = styled.div``;
+
 export const Name = () => {
   let [name, setName] = useState('');
   return (
     <div style={style}>
+      <div>test</div>
+      <div>test</div>
+      <StyledDiv>StyledDiv</StyledDiv>
+      <div>test</div>
+      <div>test</div>
       <input onChange={e => setName(e.target.value)} placeholder="이름"></input>
       <StyledSpan>{name}</StyledSpan>
     </div>
