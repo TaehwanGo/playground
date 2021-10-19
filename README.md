@@ -393,7 +393,7 @@ let insertedNode = parentNode.insertBefore(newNode, referenceNode);
 function positionItems() {
   let itemsList = document.querySelectorAll('.items .item');
   let indexCounter = 0;
-  itemsList.forEach(item => {
+  itemsList.forEach((item) => {
     item.style.top = 70 * indexCounter + indexCounter * 10 + 'px';
     // 기본적으로 위치는 동일하지만(absolute) 각각 자바스크립트로 위치를 조정함
     indexCounter++;
@@ -469,7 +469,7 @@ const BasicFunction = () => {
       animation={200}
       delay={2}
     >
-      {state.map(item => (
+      {state.map((item) => (
         <div key={item.id}>{item.name}</div>
       ))}
     </ReactSortable>
@@ -529,7 +529,7 @@ function download() {
     // url: 'https://wetubetony.s3.ap-northeast-2.amazonaws.com/video/6a3261c1aae8da977fb6a4fc51dcc116', // CORS
     method: 'GET',
     responseType: 'blob',
-  }).then(response => {
+  }).then((response) => {
     const url = window.URL.createObjectURL(new Blob([response.data]));
     const link = document.createElement('a');
     link.href = url;
@@ -649,5 +649,16 @@ PayloadTooLargeError: request entity too large
 
 - https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=pjt3591oo&logNo=221907792621
 - https://www.howdy-mj.me/css/emotion.js-intro/
+
+</details>
+
+<details>
+<summary>javascript</summary>
+
+### global variable test
+
+- globalNumber라는 값이 변화될 것으로 예상했으나 그렇지 않았다.
+- 함수의 parameter로 변수를 받아서 그것의 값을 변경해도 전달한 원래의 변수는 값이 변화되지 않는다.
+- 그런데 신기한점은 함수내에서 변수를 선언하지 않았고 단지 전달만 받은 변수가 계속 살아서 값이 누적될 수 있다.
 
 </details>
