@@ -1,0 +1,11 @@
+body {
+    transition: transform 300ms ease;
+}
+
+span {
+    cursor: pointer;
+}
+
+.move__page {
+    transform: translateX(100%);
+}
