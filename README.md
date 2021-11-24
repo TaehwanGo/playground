@@ -393,7 +393,7 @@ let insertedNode = parentNode.insertBefore(newNode, referenceNode);
 function positionItems() {
   let itemsList = document.querySelectorAll('.items .item');
   let indexCounter = 0;
-  itemsList.forEach((item) => {
+  itemsList.forEach(item => {
     item.style.top = 70 * indexCounter + indexCounter * 10 + 'px';
     // 기본적으로 위치는 동일하지만(absolute) 각각 자바스크립트로 위치를 조정함
     indexCounter++;
@@ -469,7 +469,7 @@ const BasicFunction = () => {
       animation={200}
       delay={2}
     >
-      {state.map((item) => (
+      {state.map(item => (
         <div key={item.id}>{item.name}</div>
       ))}
     </ReactSortable>
@@ -529,7 +529,7 @@ function download() {
     // url: 'https://wetubetony.s3.ap-northeast-2.amazonaws.com/video/6a3261c1aae8da977fb6a4fc51dcc116', // CORS
     method: 'GET',
     responseType: 'blob',
-  }).then((response) => {
+  }).then(response => {
     const url = window.URL.createObjectURL(new Blob([response.data]));
     const link = document.createElement('a');
     link.href = url;
@@ -660,5 +660,105 @@ PayloadTooLargeError: request entity too large
 - globalNumber라는 값이 변화될 것으로 예상했으나 그렇지 않았다.
 - 함수의 parameter로 변수를 받아서 그것의 값을 변경해도 전달한 원래의 변수는 값이 변화되지 않는다.
 - 그런데 신기한점은 함수내에서 변수를 선언하지 않았고 단지 전달만 받은 변수가 계속 살아서 값이 누적될 수 있다.
+
+</details>
+
+<details>
+<summary>Recoil</summary>
+
+## trophy-quiz
+
+- Recoil 프로젝트 clone해서 코드 살펴보기
+
+## Recoil 강의 정리
+
+- Recoil로 어떻게 global state를 선언하는지
+- 선언한 global state를 컴포넌트 안에서 사용하는 방법
+
+### trophy-quiz 동작 설명
+
+- Recoil 관련해선 pages/Landing.tsx만 살펴봄
+- Difficulty(select 태그)에 들어가는 option들을 global state로 만들음
+  - 이런 옵션들을 다른 페이지에서도 사용해야 하기 때문
+  - DB에 저장해서 관리하는게 편하지 않나?
+    - db에서 난이도에 대한 string[] 를 가져오고
+    - 첫 페이지에서 선택한 난이도를 앱 전체에서 사용하기 위함
+
+### global state
+
+- state directory안에 모여 있음
+
+#### global state 만들기
+
+```typescript
+// src/state/QuizDifficulty.ts
+import { atom } from 'recoil';
+
+export default atom<string | undefined>({
+  key: 'QuizDifficulty',
+  default: undefined,
+}); // 앱 전체에서 사용될 첫 페이지에서 선택한 난이도
+```
+
+- recoil 라이브러리에서 atom 이란 함수를 가져옴
+  - atom
+    - 객체를 파라미터로 받는 함수
+    - key, default를 가지고 있는 객체
+      - key : 유니크한 값이 들어가야 함
+        - atom으로 만들어낼 global state에 대해 모두 각각 유니크한 key를 가지고 있어야 함
+      - default : 우리가 선언한 global state에 할당하고 싶은 default값
+
+#### 컴포넌트에서 global state활용하기
+
+```typescript
+// src/components/Organisms/QuizDifficulty.tsx
+import { useRecoilState } from 'recoil';
+import { QuizDifficultyState } from 'src/state';
+
+const QuizDifficulty = () => {
+  const [quizDifficulty, setQuizDifficulty] =
+    useRecoilState(QuizDifficultyState);
+
+  const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    setQuizDifficulty(e.target.value);
+  };
+
+  return (
+    <select
+      data-testid={DIFFICULTY_SELECT_TEST_ID}
+      margin="16px 0px"
+      value={quizDifficulty}
+      onChange={handleChange}
+    >
+      {difficulties.map(difficulty => (
+        <option
+          key={difficulty}
+          value={difficulty == ANY_DIFFICULTY ? undefined : difficulty}
+        >
+          {difficulty == ANY_DIFFICULTY ? difficulty : difficulty.toUpperCase()}
+        </option>
+      ))}
+    </select>
+  );
+};
+
+export default QuizDifficulty;
+```
+
+- recoil의 atom으로 만든 global state를 사용하기 위해서 `useRecoilState`라는 hook을 사용
+  - useRecoilState에 atom으로 선언한 것을 전달
+    - const [quizDifficulty, setQuizDifficulty] =
+      useRecoilState(`QuizDifficultyState`);
+- useState랑 똑같이 사용하면 됨
+
+### 비동기적인 데이터를 global state로 관리하기
+
+- 비동기적인 global state를 사용해서 렌더링할 때 suspense 사용하기
+
+## 참고
+
+- https://youtu.be/t934FOlOMoM
+- https://github.com/david718/trophy-quiz
+- https://stackoverflow.com/questions/53516594/why-do-i-keep-getting-delete-cr-prettier-prettier
 
 </details>
