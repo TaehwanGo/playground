@@ -751,14 +751,195 @@ export default QuizDifficulty;
       useRecoilState(`QuizDifficultyState`);
 - useState랑 똑같이 사용하면 됨
 
-### 비동기적인 데이터를 global state로 관리하기
+## 비동기적인 데이터를 global state로 관리하기
 
 - 비동기적인 global state를 사용해서 렌더링할 때 suspense 사용하기
+
+#### selector
+
+- atom과 같이 global state를 선언하는 함수
+- 1. 이미 선언된 atom이 값이 변할 때, 그 atom을 구독하고 있다가 selector에 할당된 함수가 다시 실행
+- 2. 서버와 비동기적으로 통신한 response data를 값으로 가질 수 있음
+
+### Quiz app 동작 흐름 -> 코드 분석, 렌더링에서 selector의 활용
+
+- clone했기 때문에 작성자의 서버주소가 어딘지 열려있는지 확인이 안됨
+
+```typescript
+// src/components/Organisms/LandingFooter.tsx
+import { useResetRecoilState } from 'recoil';
+
+import { InitialPropsState } from 'src/state';
+useResetRecoilState(InitialPropsState);
+
+// InitialPropsState.ts : selector
+import { selector } from 'recoil';
+export default selector<TResponseData>({
+  // atom이 아닌 selector로 선언된 global state
+  key: 'initialOrderState', // atom포함해서 unique한 key이어야 함
+  get: async ({ get }) => {
+    const queryData = get(QueryDataState); // atom으로 선언된 global state를 구독하고 있다가 변경되면 get: 에 할당된 async함수가 재 실행 됨
+    // QueryDataState가 변경 될 때 마다 서버로 부터 받아온 데이터(decodedResponseData)를 return
+    if (
+      queryData == undefined ||
+      window.location.pathname != `/${QUIZ_PAGENAME}`
+    )
+      return undefined;
+
+    const { amount, difficulty } = queryData;
+
+    const axios = customAxios();
+    const response = await axios({
+      method: 'GET',
+      params: {
+        amount,
+        difficulty,
+        type: 'multiple',
+      },
+    });
+    const decodedResponseData = {
+      ...response.data,
+      results: response.data.results.map((quiz: TQuiz) => {
+        const decoded_correct_answer = decodeHtml(quiz.correct_answer);
+        const decoded_incorrect_answers = quiz.incorrect_answers.map(answer =>
+          decodeHtml(answer),
+        );
+        return {
+          ...quiz,
+          question: decodeHtml(quiz.question),
+          correct_answer: decoded_correct_answer,
+          incorrect_answers: decoded_incorrect_answers,
+          examples: addCorrectAnswerRandomly(
+            decoded_incorrect_answers,
+            decoded_correct_answer,
+          ),
+        };
+      }),
+    };
+    return decodedResponseData;
+  },
+  set: ({ get, set }) => {
+    const amount = get(QuizNumbersState); // atom state를 가져와서
+    const difficulty = get(QuizDifficultyState); // atom state를 가져와서
+
+    set(QueryDataState, { amount, difficulty }); // QueryDataState : atom state를 업데이트 해줌 -> get: 에서 QueryDataState를 구독하고 있으므로
+    // useResetRecoilState()로 set:을 호출해서 set으로 값을 업데이트 하면
+    // selector의 get: 에 할당된 async 함수가 실행 됨
+    set(QuizNumbersState, DEFAULT_NUMBERS);
+    set(QuizDifficultyState, undefined);
+  },
+});
+```
+
+### selector
+
+- atom과 같이 global state를 선언하는 함수
+- 1. 이미 선언된 atom이 값이 변할 때, 그 atom을 구독하고 있다가 selector에 할당된 함수가 다시 실행
+- 2. 서버와 비동기적으로 통신한 response data를 값으로 가질 수 있음
+
+#### key : atom포함해서 unique한 key이어야 함
+
+#### get : 함수가 할당될 수 있는 key(property)
+
+- get에 할당된 함수에서 서버와 통신을 함
+- get에 할당된 함수의 prop : { get } 으로 atom state를 구독하고 있다가 변경되면 할당된 async 함수가 재실행 됨
+- 즉, atom state를 구독하고 있다가 변경되면 서버로 부터 데이터를 다시 불러와서 서버로 부터 온 데이터를 return
+
+#### set
+
+- set property에 어떤 것도 할당되지 않았다면,
+  - selector는 자체적으로 setState, atom처럼 setState를 할 수 없음
+- selector는 state본체라기 보단 atom의 파편, atom을 무조건 subscribe 해야함
+- set은 selector가 어떻게 setState를 하라고 명시해주는 것
+- selector의 setState를 하면 set에 할당된 함수가 실행 됨
+
+### useResetRecoilState()
+
+- selector state의 set에 할당된 함수를 실행
+  - useResetRecoilState()로 set:을 호출해서 set으로 값을 업데이트 하면
+  - QueryDataState : atom state를 업데이트 해줌
+  - get: 에서 QueryDataState를 구독하고 있으므로
+  - selector의 get: 에 할당된 async 함수가 실행 됨
+
+### recoil의 global state
+
+- tree 처럼 앞의 state가 수정되면 selector도 재실행이 됨
+
+### Suspense
+
+- children으로 호출하는 컴포넌트 중에서 어떤 특정 컴포넌트가 비동기 데이터를 읽어오고 있다면
+- 비동기 값의 loading, success, fail 상태 일때
+  - loading 상태일 땐, Suspense컴포넌트의 fallback(prop)에 해당하는 컴포넌트를 렌더링해줌
+- loading이 끝나고 success 또는 fail이면 다시 children 컴포넌트를 렌더링
+
+```tsx
+import { Suspense } from 'react';
+import { Helmet } from 'react-helmet';
+import { Route, Switch } from 'react-router';
+import { BrowserRouter } from 'react-router-dom';
+
+import { QUIZ_PAGENAME, RESULT_PAGENAME } from 'src/constant';
+import {
+  ErrorBoundary,
+  LandingPage,
+  QuizPage,
+  ResultsPage,
+  ShimmerPage,
+} from 'src/components/Pages';
+
+const Router = () => {
+  return (
+    <BrowserRouter>
+      <ErrorBoundary>
+        <Suspense fallback={<ShimmerPage />}>
+          <Switch>
+            <Route path={`/${QUIZ_PAGENAME}`}>
+              <Helmet title="Quiz page" />
+              <QuizPage />
+            </Route>
+            <Route path={`/${RESULT_PAGENAME}`}>
+              <Helmet title="Result page" />
+              <ResultsPage />
+            </Route>
+            <Route exact path="/">
+              <Helmet title="Landing page" />
+              <LandingPage />
+            </Route>
+          </Switch>
+        </Suspense>
+      </ErrorBoundary>
+    </BrowserRouter>
+  );
+};
+
+export default Router;
+```
+
+### opentdb response sample
+
+```json
+// https://opentdb.com/api.php?amount=1&difficulty=easy
+{
+  "response_code": 0,
+  "results": [
+    {
+      "category": "Entertainment: Music",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which Beatles album does NOT feature any of the band members on it&#039;s cover?",
+      "correct_answer": "The Beatles (White Album)",
+      "incorrect_answers": ["Rubber Soul", "Abbey Road", "Magical Mystery Tour"]
+    }
+  ]
+}
+```
 
 ## 참고
 
 - https://youtu.be/t934FOlOMoM
 - https://github.com/david718/trophy-quiz
 - https://stackoverflow.com/questions/53516594/why-do-i-keep-getting-delete-cr-prettier-prettier
+- [Recoil: 비동기 데이터 전역 상태로 관리하기](https://youtu.be/7nwpEiSpPqY)
+  - .env : REACT_APP_API_SERVER=https://opentdb.com/api.php
 
 </details>
