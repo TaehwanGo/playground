@@ -227,7 +227,7 @@ To trigger an action on drag or drop on DOM elements, we’ll need to utilize th
 - dropzone을 설정 시 원하는 박스에 넣으려면 closest로 타겟을 변경해줘야 함
 
 ```javascript
-const dropzone = event.target.closest('.example-dropzone');
+const dropzone = event.target.closest(".example-dropzone");
 ```
 
 그렇지 않으면 child에 append가 되어버림
@@ -391,10 +391,10 @@ let insertedNode = parentNode.insertBefore(newNode, referenceNode);
 
 ```javascript
 function positionItems() {
-  let itemsList = document.querySelectorAll('.items .item');
+  let itemsList = document.querySelectorAll(".items .item");
   let indexCounter = 0;
-  itemsList.forEach(item => {
-    item.style.top = 70 * indexCounter + indexCounter * 10 + 'px';
+  itemsList.forEach((item) => {
+    item.style.top = 70 * indexCounter + indexCounter * 10 + "px";
     // 기본적으로 위치는 동일하지만(absolute) 각각 자바스크립트로 위치를 조정함
     indexCounter++;
   });
@@ -448,17 +448,17 @@ function positionItems() {
 - @type/sortable
 
 ```javascript
-import React, { useState } from 'react';
-import { ReactSortable } from 'react-sortablejs';
+import React, { useState } from "react";
+import { ReactSortable } from "react-sortablejs";
 
 const BasicFunction = () => {
   const [state, setState] = useState([
-    { id: 1, name: 'shrek1' },
-    { id: 2, name: 'fiona2' },
-    { id: 3, name: 'shrek3' },
-    { id: 4, name: 'fiona4' },
-    { id: 5, name: 'shrek5' },
-    { id: 6, name: 'fiona6' },
+    { id: 1, name: "shrek1" },
+    { id: 2, name: "fiona2" },
+    { id: 3, name: "shrek3" },
+    { id: 4, name: "fiona4" },
+    { id: 5, name: "shrek5" },
+    { id: 6, name: "fiona6" },
   ]);
 
   return (
@@ -469,7 +469,7 @@ const BasicFunction = () => {
       animation={200}
       delay={2}
     >
-      {state.map(item => (
+      {state.map((item) => (
         <div key={item.id}>{item.name}</div>
       ))}
     </ReactSortable>
@@ -525,15 +525,15 @@ downloadFile() {
 ```javascript
 function download() {
   axios({
-    url: 'https://source.unsplash.com/random/500x500',
+    url: "https://source.unsplash.com/random/500x500",
     // url: 'https://wetubetony.s3.ap-northeast-2.amazonaws.com/video/6a3261c1aae8da977fb6a4fc51dcc116', // CORS
-    method: 'GET',
-    responseType: 'blob',
-  }).then(response => {
+    method: "GET",
+    responseType: "blob",
+  }).then((response) => {
     const url = window.URL.createObjectURL(new Blob([response.data]));
-    const link = document.createElement('a');
+    const link = document.createElement("a");
     link.href = url;
-    link.setAttribute('download', 'image.jpg');
+    link.setAttribute("download", "image.jpg");
     // link.setAttribute('download', 'video.mp4');
     document.body.appendChild(link);
     link.click();
@@ -692,10 +692,10 @@ PayloadTooLargeError: request entity too large
 
 ```typescript
 // src/state/QuizDifficulty.ts
-import { atom } from 'recoil';
+import { atom } from "recoil";
 
 export default atom<string | undefined>({
-  key: 'QuizDifficulty',
+  key: "QuizDifficulty",
   default: undefined,
 }); // 앱 전체에서 사용될 첫 페이지에서 선택한 난이도
 ```
@@ -712,8 +712,8 @@ export default atom<string | undefined>({
 
 ```typescript
 // src/components/Organisms/QuizDifficulty.tsx
-import { useRecoilState } from 'recoil';
-import { QuizDifficultyState } from 'src/state';
+import { useRecoilState } from "recoil";
+import { QuizDifficultyState } from "src/state";
 
 const QuizDifficulty = () => {
   const [quizDifficulty, setQuizDifficulty] =
@@ -730,7 +730,7 @@ const QuizDifficulty = () => {
       value={quizDifficulty}
       onChange={handleChange}
     >
-      {difficulties.map(difficulty => (
+      {difficulties.map((difficulty) => (
         <option
           key={difficulty}
           value={difficulty == ANY_DIFFICULTY ? undefined : difficulty}
@@ -767,16 +767,16 @@ export default QuizDifficulty;
 
 ```typescript
 // src/components/Organisms/LandingFooter.tsx
-import { useResetRecoilState } from 'recoil';
+import { useResetRecoilState } from "recoil";
 
-import { InitialPropsState } from 'src/state';
+import { InitialPropsState } from "src/state";
 useResetRecoilState(InitialPropsState);
 
 // InitialPropsState.ts : selector
-import { selector } from 'recoil';
+import { selector } from "recoil";
 export default selector<TResponseData>({
   // atom이 아닌 selector로 선언된 global state
-  key: 'initialOrderState', // atom포함해서 unique한 key이어야 함
+  key: "initialOrderState", // atom포함해서 unique한 key이어야 함
   get: async ({ get }) => {
     const queryData = get(QueryDataState); // atom으로 선언된 global state를 구독하고 있다가 변경되면 get: 에 할당된 async함수가 재 실행 됨
     // QueryDataState가 변경 될 때 마다 서버로 부터 받아온 데이터(decodedResponseData)를 return
@@ -790,19 +790,19 @@ export default selector<TResponseData>({
 
     const axios = customAxios();
     const response = await axios({
-      method: 'GET',
+      method: "GET",
       params: {
         amount,
         difficulty,
-        type: 'multiple',
+        type: "multiple",
       },
     });
     const decodedResponseData = {
       ...response.data,
       results: response.data.results.map((quiz: TQuiz) => {
         const decoded_correct_answer = decodeHtml(quiz.correct_answer);
-        const decoded_incorrect_answers = quiz.incorrect_answers.map(answer =>
-          decodeHtml(answer),
+        const decoded_incorrect_answers = quiz.incorrect_answers.map((answer) =>
+          decodeHtml(answer)
         );
         return {
           ...quiz,
@@ -811,7 +811,7 @@ export default selector<TResponseData>({
           incorrect_answers: decoded_incorrect_answers,
           examples: addCorrectAnswerRandomly(
             decoded_incorrect_answers,
-            decoded_correct_answer,
+            decoded_correct_answer
           ),
         };
       }),
@@ -873,19 +873,19 @@ export default selector<TResponseData>({
 - loading이 끝나고 success 또는 fail이면 다시 children 컴포넌트를 렌더링
 
 ```tsx
-import { Suspense } from 'react';
-import { Helmet } from 'react-helmet';
-import { Route, Switch } from 'react-router';
-import { BrowserRouter } from 'react-router-dom';
+import { Suspense } from "react";
+import { Helmet } from "react-helmet";
+import { Route, Switch } from "react-router";
+import { BrowserRouter } from "react-router-dom";
 
-import { QUIZ_PAGENAME, RESULT_PAGENAME } from 'src/constant';
+import { QUIZ_PAGENAME, RESULT_PAGENAME } from "src/constant";
 import {
   ErrorBoundary,
   LandingPage,
   QuizPage,
   ResultsPage,
   ShimmerPage,
-} from 'src/components/Pages';
+} from "src/components/Pages";
 
 const Router = () => {
   return (
@@ -941,5 +941,16 @@ export default Router;
 - https://stackoverflow.com/questions/53516594/why-do-i-keep-getting-delete-cr-prettier-prettier
 - [Recoil: 비동기 데이터 전역 상태로 관리하기](https://youtu.be/7nwpEiSpPqY)
   - .env : REACT_APP_API_SERVER=https://opentdb.com/api.php
+
+</details>
+
+# nextjs-typescript
+
+- 테스트 할 때 마다 모듈을 설치해야되는 부분이 번거로우므로 여기에서 nextjs 관련 테스트를 모두 진행할 예정
+- https://nextjs.org/docs/getting-started
+- npx create-next-app@latest --typescript
+
+<details>
+<summary>context api</summary>
 
 </details>
