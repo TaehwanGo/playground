@@ -953,4 +953,7 @@ export default Router;
 <details>
 <summary>context api</summary>
 
+context api 좋은지 모르겠다
+provider로 감싸야 하는 계층구조가 좀 별로다
+
 </details>

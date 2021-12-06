@@ -1,15 +1,15 @@
 import React, { createContext } from "react";
 
-const Context = createContext({
-  isShown: false,
+export const Context = createContext({
+  isShown: true,
 });
 
 type ChildrenNode = {
   children: React.ReactChild;
 };
 
-const useContext = ({ children }: ChildrenNode) => {
+export const ContextProvider = ({ children }: ChildrenNode) => {
   return (
-    <Context.Provider value={{ isShown: false }}>{children}</Context.Provider>
+    <Context.Provider value={{ isShown: true }}>{children}</Context.Provider>
   );
 };
