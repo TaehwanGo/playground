@@ -957,3 +957,46 @@ context api 좋은지 모르겠다
 provider로 감싸야 하는 계층구조가 좀 별로다
 
 </details>
+
+<details>
+<summary>react query</summary>
+
+### Free API
+
+- https://apipheny.io/free-api/
+  > GET : https://catfact.ninja/fact
+
+```json
+{
+  "fact": "Cats step with both left legs, then both right legs when they walk or run.",
+  "length": 74
+}
+```
+
+## react-query
+
+### Getting started
+
+#### Using Hydration
+
+```js
+// _app.jsx
+import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
+
+export default function MyApp({ Component, pageProps }) {
+  const [queryClient] = React.useState(() => new QueryClient());
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Hydrate state={pageProps.dehydratedState}>
+        <Component {...pageProps} />
+      </Hydrate>
+    </QueryClientProvider>
+  );
+}
+```
+
+- https://react-query.tanstack.com/guides/ssr#using-nextjs
+- https://gingerkang.tistory.com/123
+
+</details>
