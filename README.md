@@ -996,7 +996,13 @@ export default function MyApp({ Component, pageProps }) {
 }
 ```
 
+### 참고
+
 - https://react-query.tanstack.com/guides/ssr#using-nextjs
 - https://gingerkang.tistory.com/123
+
+### 읽어 볼 것
+
+- https://radlohead.gitbook.io/typescript-deep-dive/future-javascript/async-await
 
 </details>
