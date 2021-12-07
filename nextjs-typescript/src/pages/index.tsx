@@ -1,13 +1,21 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import { useContext } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import styles from "../../styles/Home.module.css";
 import Card from "../components/Card";
 import { Context } from "../hooks/useContext";
+import { CatFact, getCatFact } from "./api";
 
 const Home: NextPage = () => {
   const { isShown } = useContext(Context);
+  const [catFact, setCatFact] = useState<CatFact>({ fact: "", length: 0 });
+  useEffect(() => {
+    getCatFact();
+    // const catFactResult = getCatFact();
+    // setCatFact(catFactResult);
+  }, []);
+  // const { data: catFact } = getCatFact();
   return (
     <div className={styles.container}>
       <Head>
@@ -16,7 +24,10 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header>{isShown && <Card />}</header>
+      <header>
+        {isShown && <Card />}
+        <div>{catFact.fact}</div>
+      </header>
 
       <main className={styles.main}>
         <h1 className={styles.title}>
