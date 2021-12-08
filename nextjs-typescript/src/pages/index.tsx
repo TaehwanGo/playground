@@ -12,17 +12,23 @@ import styles from "styles/Home.module.css";
 import Card from "src/components/Card";
 import { Context } from "src/hooks/useContext";
 import { CatFact, getCatFact } from "./api";
+import { useQuery } from "react-query";
 
 const Home: NextPage = () => {
   const { isShown } = useContext(Context);
   const [catFact, setCatFact] = useState<CatFact>({ fact: "", length: 0 });
-  useLayoutEffect(() => {
-    getCatFact()
-      .then((res) => console.log("Home", setCatFact(res)))
-      .catch((error) => console.error(error));
-    // const catFactResult = getCatFact();
-    // setCatFact(catFactResult);
-  }, []);
+  const { isLoading } = useQuery("cat-fact", getCatFact, {
+    onSuccess: (res) => setCatFact(res),
+    staleTime: Infinity,
+    refetchInterval: Infinity,
+  });
+  // useLayoutEffect(() => {
+  //   getCatFact()
+  //     .then((res) => console.log("Home", setCatFact(res)))
+  //     .catch((error) => console.error(error));
+  //   // const catFactResult = getCatFact();
+  //   // setCatFact(catFactResult);
+  // }, []);
   // const { data: catFact } = getCatFact();
   return (
     <div className={styles.container}>
