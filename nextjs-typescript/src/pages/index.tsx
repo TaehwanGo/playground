@@ -1,17 +1,25 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import { useContext, useEffect, useRef, useState } from "react";
-import styles from "../../styles/Home.module.css";
-import Card from "../components/Card";
-import { Context } from "../hooks/useContext";
+import {
+  useContext,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
+import styles from "styles/Home.module.css";
+import Card from "src/components/Card";
+import { Context } from "src/hooks/useContext";
 import { CatFact, getCatFact } from "./api";
 
 const Home: NextPage = () => {
   const { isShown } = useContext(Context);
   const [catFact, setCatFact] = useState<CatFact>({ fact: "", length: 0 });
-  useEffect(() => {
-    getCatFact();
+  useLayoutEffect(() => {
+    getCatFact()
+      .then((res) => console.log("Home", setCatFact(res)))
+      .catch((error) => console.error(error));
     // const catFactResult = getCatFact();
     // setCatFact(catFactResult);
   }, []);
