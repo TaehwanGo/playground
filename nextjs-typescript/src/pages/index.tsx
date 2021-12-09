@@ -17,19 +17,27 @@ import { useQuery } from "react-query";
 const Home: NextPage = () => {
   const { isShown } = useContext(Context);
   const [catFact, setCatFact] = useState<CatFact>({ fact: "", length: 0 });
-  const { isLoading } = useQuery("cat-fact", getCatFact, {
-    onSuccess: (res) => setCatFact(res),
-    staleTime: Infinity,
-    refetchInterval: Infinity,
-  });
-  // useLayoutEffect(() => {
-  //   getCatFact()
-  //     .then((res) => console.log("Home", setCatFact(res)))
-  //     .catch((error) => console.error(error));
-  //   // const catFactResult = getCatFact();
-  //   // setCatFact(catFactResult);
-  // }, []);
-  // const { data: catFact } = getCatFact();
+  // const { isLoading } = useQuery("cat-fact", getCatFact, {
+  //   onSuccess: (res) => setCatFact(res),
+  //   staleTime: Infinity,
+  //   refetchInterval: Infinity,
+  // });
+
+  useLayoutEffect(() => {
+    let result: CatFact;
+    getCatFact()
+      .then((res) => {
+        console.log("Home", res);
+        setCatFact(res);
+        return (result = res);
+      })
+      .catch((error) => console.error(error));
+    // const catFactResult = getCatFact();
+    // setCatFact(catFactResult);
+    if (catFact) {
+      console.log("");
+    }
+  }, [catFact]);
   return (
     <div className={styles.container}>
       <Head>
