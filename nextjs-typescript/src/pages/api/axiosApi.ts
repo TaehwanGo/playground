@@ -15,7 +15,12 @@ export const movieApiInstance = axios.create({
 });
 
 export const movieApi = {
-  nowPlaying: () => movieApiInstance.get("movie/now_playing"),
+  nowPlaying: (page: number) =>
+    movieApiInstance.get<MovieResponse>("movie/now_playing", {
+      params: {
+        page,
+      },
+    }),
   upcoming: () => movieApiInstance.get("movie/upcoming"),
   popular: () => movieApiInstance.get("movie/popular"),
 };

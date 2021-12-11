@@ -1006,3 +1006,21 @@ export default function MyApp({ Component, pageProps }) {
 - https://radlohead.gitbook.io/typescript-deep-dive/future-javascript/async-await
 
 </details>
+
+<details>
+<summary>open api</summary>
+
+### movie : TMDB
+
+- https://developers.themoviedb.org/3/movies/get-movie-details
+- image: https://developers.themoviedb.org/3/getting-started/images
+
+</details>
+
+<details>
+<summary>open api</summary>
+
+- nextjs-typescript에 구현
+- 설명 : https://velog.io/@gth1123/react-infinite-scroll-component
+
+</details>

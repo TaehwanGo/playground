@@ -37,7 +37,7 @@ const Home: NextPage = () => {
     if (catFact) {
       console.log("");
     }
-  }, [catFact]);
+  }, []);
   return (
     <div className={styles.container}>
       <Head>
