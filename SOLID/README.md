@@ -145,7 +145,7 @@ class NewPhone implements Call, SMS, Internet {
 }
 ```
 
-## Dependency inversion principle
+## 5. Dependency inversion principle
 
 - 의존관계 역전 원칙
 - 프로그래머는 추상화에 의존해야지, 구체화에 의존하면 안된다
