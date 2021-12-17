@@ -1024,3 +1024,17 @@ export default function MyApp({ Component, pageProps }) {
 - 설명 : https://velog.io/@gth1123/react-infinite-scroll-component
 
 </details>
+
+Redux Toolkit TypeScript Example
+
+<details>
+<summary>Redux Toolkit TypeScript Example</summary>
+
+# Redux Toolkit TypeScript Example
+
+- https://github.com/vercel/next.js/tree/canary/examples/with-redux
+- Next.js 공식사이트의 예제를 리팩토링하고 테스트 코드를 적용해보기
+  - https://velog.io/@velopert/using-redux-in-2021
+  - https://codesandbox.io/s/redux-todos-with-test-forked-93huy?file=/package.json
+
+</details>
