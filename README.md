@@ -1025,8 +1025,6 @@ export default function MyApp({ Component, pageProps }) {
 
 </details>
 
-Redux Toolkit TypeScript Example
-
 <details>
 <summary>Redux Toolkit TypeScript Example</summary>
 
