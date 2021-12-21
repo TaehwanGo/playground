@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState, memo } from "react";
 
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import {
@@ -11,13 +11,24 @@ import {
 } from "./counterSlice";
 import styles from "./Counter.module.css";
 
-function Counter() {
+const Counter = memo(function Counter() {
   const dispatch = useAppDispatch();
   const count = useAppSelector(selectCount);
   const [incrementAmount, setIncrementAmount] = useState("2");
+  const [text, setText] = useState({ a: 1, b: 2 });
 
   const incrementValue = Number(incrementAmount) || 0;
   console.log("increment() : actionCreator", increment()); // {type: 'counter/increment', payload: undefined}
+
+  // text.a = 11;
+
+  console.log("text", text);
+
+  useEffect(() => {
+    setText({ a: 123, b: 321 }); // useEffect() 안에서 사용해야 되는 구나
+  }, []);
+
+  console.log("text after setText", text);
 
   return (
     <div>
@@ -66,6 +77,6 @@ function Counter() {
       </div>
     </div>
   );
-}
+});
 
 export default Counter;
