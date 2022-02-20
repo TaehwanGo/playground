@@ -50,6 +50,7 @@ const Table = () => {
         </TableItem>
         {tableData.map((item, index, array) => (
           <TableItem
+            key={index}
             isFirstLine={checkIsFirstLine(index)}
             isFirstItem={checkIsFirstItem(index)}
           >
