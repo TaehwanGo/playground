@@ -6,6 +6,17 @@ export const axiosApi = axios.create({
   timeout: 2500,
 });
 
+axiosApi.interceptors.response.use(
+  (res) => {
+    console.log("interceptors res", res);
+    return res;
+  },
+  (error) => {
+    console.error("interceptors error", error);
+    return Promise.reject(error);
+  }
+);
+
 export const movieApiInstance = axios.create({
   baseURL: "https://api.themoviedb.org/3/",
   params: {

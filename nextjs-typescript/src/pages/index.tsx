@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import {
+  useCallback,
   useContext,
   useEffect,
   useLayoutEffect,
@@ -13,6 +14,8 @@ import Card from "src/components/Card";
 import { Context } from "src/hooks/useContext";
 import { CatFact, getCatFact } from "./api";
 import { useQuery } from "react-query";
+import { axiosApi } from "./api/axiosApi";
+import { CATFACT_SUB_URL } from "@common/constants";
 
 const Home: NextPage = () => {
   const { isShown } = useContext(Context);
@@ -23,6 +26,17 @@ const Home: NextPage = () => {
   //   refetchInterval: Infinity,
   // });
 
+  const getSomeData = useCallback(async (params) => {
+    try {
+      const res = axiosApi.get(CATFACT_SUB_URL.fact, {
+        params,
+      });
+      // 토스트 메세지
+    } catch (error) {
+      // 토스트 메세지
+    }
+  }, []);
+
   useLayoutEffect(() => {
     let result: CatFact;
     getCatFact()
@@ -32,11 +46,6 @@ const Home: NextPage = () => {
         return (result = res);
       })
       .catch((error) => console.error(error));
-    // const catFactResult = getCatFact();
-    // setCatFact(catFactResult);
-    if (catFact) {
-      console.log("");
-    }
   }, []);
   return (
     <div className={styles.container}>
