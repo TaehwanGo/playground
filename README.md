@@ -1036,3 +1036,10 @@ export default function MyApp({ Component, pageProps }) {
   - https://codesandbox.io/s/redux-todos-with-test-forked-93huy?file=/package.json
 
 </details>
+
+<details>
+<summary>git 여러 커밋 합치기</summary>
+
+https://velog.io/@gth1123/git-%EC%97%AC%EB%9F%AC-%EC%BB%A4%EB%B0%8B-%ED%95%A9%EC%B9%98%EA%B8%B0
+
+</details>
