@@ -65,8 +65,10 @@ const joinProviderWithSample = (
 
   return providersObjCopy;
 };
-const result = joinProviderWithSample(providersObj, sampleCountDataObj);
+const result = Object.values(
+  joinProviderWithSample(providersObj, sampleCountDataObj)
+);
 
 // const result = sampleCountDataObj;
-console.log(providers); // deep copy를 하지 않아서 원본 데이터에 반영이 되었다 하지만 원본 데이터인 배열로 조인하는게 목적이었으니.. 그냥 쓰자
-// console.log(result);
+// console.log(providers); // deep copy를 하지 않아서 원본 데이터에 반영이 되었다
+console.log(result);
