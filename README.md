@@ -15,6 +15,13 @@ drop down menu without javascript
 </details>
 
 <details>
+<summary>dropdown</summary>
+
+gitlab의 repository 설정하는 부분의 드롭다운을 참고하였음
+
+</details>
+
+<details>
 <summary>slider</summary>
 
 ## slider

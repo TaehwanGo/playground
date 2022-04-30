@@ -1,0 +1,54 @@
+li,
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  padding: 1rem;
+  background-color: cadetblue;
+}
+
+.item:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.list {
+  background-color: antiquewhite;
+  animation: collapseMaxHeight 300ms ease-out;
+  max-height: 0;
+  overflow-y: hidden;
+}
+
+.expend.list {
+  max-height: none;
+  overflow-y: visible;
+  animation: expandMaxHeight 300ms ease-in;
+  pointer-events: auto;
+}
+
+@keyframes expandMaxHeight {
+  0% {
+    max-height: 0;
+  }
+  99% {
+    max-height: 100vh;
+  }
+  100% {
+    max-height: none;
+  }
+}
+
+@keyframes collapseMaxHeight {
+  0% {
+    max-height: 100vh;
+  }
+  100% {
+    max-height: 0;
+  }
+}
+
+.list__title {
+  cursor: pointer;
+}
