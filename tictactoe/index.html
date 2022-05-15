@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./tictactoe.js" defer></script>
+    <link rel="stylesheet" href="tictactoe.css" />
+    <title>Tictactoe</title>
+  </head>
+  <body>
+    <div>
+      <h1>Tic Tac Toe</h1>
+      <div id="scoreBoard" class="board__score">
+        <div id="player1">
+          <h2>Player 1</h2>
+          <p id="player1Score" class="board__score__number">0</p>
+        </div>
+        <div id="player2">
+          <h2>Player 2</h2>
+          <p id="player2Score" class="board__score__number">0</p>
+        </div>
+      </div>
+      <div id="board" class="board">
+        <div id="board-row-1" class="board__row">
+          <div id="board-cell-1-1" class="cell"></div>
+          <div id="board-cell-1-2" class="cell"></div>
+          <div id="board-cell-1-3" class="cell"></div>
+        </div>
+        <div id="board-row-2" class="board__row">
+          <div id="board-cell-2-1" class="cell"></div>
+          <div id="board-cell-2-2" class="cell"></div>
+          <div id="board-cell-2-3" class="cell"></div>
+        </div>
+        <div id="board-row-3" class="board__row">
+          <div id="board-cell-3-1" class="cell"></div>
+          <div id="board-cell-3-2" class="cell"></div>
+          <div id="board-cell-3-3" class="cell"></div>
+        </div>
+      </div>
+      <div id="message"></div>
+      <div id="restart-button">
+        <button id="restartBtn">Restart</button>
+      </div>
+    </div>
+  </body>
+</html>
