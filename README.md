@@ -1050,3 +1050,10 @@ export default function MyApp({ Component, pageProps }) {
 https://velog.io/@gth1123/git-%EC%97%AC%EB%9F%AC-%EC%BB%A4%EB%B0%8B-%ED%95%A9%EC%B9%98%EA%B8%B0
 
 </details>
+
+<details>
+<summary>Tictactoe</summary>
+
+copilot으로 만들어본 Tictactoe 게임
+
+</details>
