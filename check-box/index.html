@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>check-box</title>
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+    <div>
+      <label for="checkBox">check-box</label>
+      <input type="checkbox" name="check1" id="checkBox" />
+    </div>
+    <ul>
+      <!-- aria-checked -->
+      <li
+        role="checkbox"
+        aria-checked="false"
+        class="checkLi"
+        aria-labelledby="checkLiLabel"
+      >
+        check li 1
+      </li>
+      <li
+        role="radio"
+        aria-checked="false"
+        class="checkLi"
+        aria-labelledby="checkLiLabel"
+      >
+        check li 2
+      </li>
+    </ul>
+    <span
+      role="checkbox"
+      id="checkBoxInput"
+      aria-checked="false"
+      tabindex="0"
+      aria-labelledby="chk15-label"
+    ></span>
+    <label id="chk15-label">Subscribe to the newsletter</label>
+    <div role="menuitemcheckbox"><h6>Name of my checkbox</h6></li>
+
+  </body>
+</html>

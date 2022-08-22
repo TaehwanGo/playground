@@ -1057,3 +1057,19 @@ https://velog.io/@gth1123/git-%EC%97%AC%EB%9F%AC-%EC%BB%A4%EB%B0%8B-%ED%95%A9%EC
 copilot으로 만들어본 Tictactoe 게임
 
 </details>
+
+<details>
+<summary>check box</summary>
+
+체크박스 비교
+
+- aria-checked
+- input : check
+- 별거 없다 그냥 aria-checked 안쓰는게 나을 듯
+  - 자바스크립트로 다 설정해줘야 함
+
+### 참고
+
+- https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-checked
+
+</details>
