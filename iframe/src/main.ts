@@ -8,5 +8,15 @@ const contentsPlayer =
 // contentsPlayer?.contentWindow?.postMessage("hello iframe", "*");
 
 setTimeout(() => {
-  contentsPlayer?.contentWindow?.postMessage(DATA_OBJECT, "*");
+  contentsPlayer?.contentWindow?.postMessage(
+    {
+      type: "initial_app_data",
+      data: DATA_OBJECT.initial_app_data,
+    },
+    "*"
+  );
 }, 2000);
+
+window.addEventListener("message", (event) => {
+  console.log("event.data", event.data);
+});
