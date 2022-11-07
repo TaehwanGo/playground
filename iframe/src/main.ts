@@ -1,4 +1,4 @@
-import { DATA_OBJECT } from "./data/data.js";
+import { DATA_OBJECT } from "./data/data";
 
 const contentsPlayer =
   document.querySelector<HTMLIFrameElement>("#contentsPlayer");
