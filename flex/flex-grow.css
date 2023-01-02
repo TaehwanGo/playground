@@ -1,0 +1,21 @@
+.parent {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  height: 70vh;
+}
+
+.child-1 {
+  background-color: #e74c3c;
+  height: 100px;
+}
+
+.child-2 {
+  background-color: #2ecc71;
+  height: 100px;
+}
+
+.child-3 {
+  background-color: #3498db;
+  flex-grow: 1;
+}
