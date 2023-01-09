@@ -1,0 +1,12 @@
+.charts {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.chart__container {
+  width: calc(50% - 20px);
+}
+
+.chart__container:nth-child(2n) {
+  margin-left: 20px;
+}
