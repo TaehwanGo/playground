@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <title>unclepigs</title>
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Roboto);
+
+      body {
+        font-family: Roboto, sans-serif;
+      }
+
+      #chart01 {
+        max-width: 300px;
+        max-height: 600px;
+        margin: 5px auto;
+      }
+      #chart02,
+      #chart03,
+      #chart04,
+      #chart05,
+      #chart06 {
+        max-width: 500px;
+        margin: 35px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="chart01"></div>
+    <div id="chart02" width="300"></div>
+    <div id="chart03" width="300"></div>
+    <div id="chart04" width="300"></div>
+    <div id="chart05" width="300"></div>
+    <div id="chart06" width="300"></div>
+
+    <script>
+      var options = {
+        chart: {
+          type: "bar",
+          height: "350px",
+        },
+        title: {
+          text: "요일별 학습시간(분)",
+        },
+        series: [
+          {
+            name: "학습시간",
+            data: [120, 40, 60, 50, 30, 180, 152],
+          },
+        ],
+        xaxis: {
+          categories: ["월", "화", "수", "목", "금", "토", "일"],
+        },
+      };
+
+      new ApexCharts(document.querySelector("#chart01"), options).render();
+
+      options2 = {
+        chart: {
+          type: "radar",
+        },
+        series: [
+          {
+            name: "전체",
+            data: [85, 72, 83, 74, 53, 90],
+          },
+          {
+            name: "나",
+            data: [73, 83, 42, 68, 78, 43],
+          },
+        ],
+        labels: [
+          "경영이념",
+          "리더십",
+          "디지털역량",
+          "어학",
+          "생활/건강",
+          "경영/소양",
+        ],
+      };
+      new ApexCharts(document.querySelector("#chart02"), options2).render();
+
+      options3 = {
+        chart: {
+          type: "radar",
+        },
+        series: [
+          {
+            name: "전체",
+            data: [98, 98, 82, 95, 90, 80],
+          },
+          {
+            name: "나",
+            data: [74, 80, 42, 63, 40, 23],
+          },
+        ],
+        labels: [
+          "경영이념",
+          "리더십",
+          "디지털역량",
+          "어학",
+          "생활/건강",
+          "경영/소양",
+        ],
+      };
+      new ApexCharts(document.querySelector("#chart03"), options3).render();
+
+      var options4 = {
+        series: [
+          {
+            name: "Bubble1",
+            data: [
+              [1.5, 3, 20],
+              [2, 15, 28],
+            ],
+          },
+          {
+            name: "Bubble2",
+            data: [
+              [6, 15, 15],
+              [11, 30, 50],
+            ],
+          },
+          //         {
+          //           name: 'Bubble3',
+          //           data: [6,1 ,0.8]
+
+          //         }
+        ],
+        chart: {
+          height: 350,
+          type: "bubble",
+        },
+        dataLabels: {
+          enabled: false,
+        },
+        fill: {
+          opacity: 0.8,
+        },
+        title: {
+          text: "학습 과목",
+        },
+        xaxis: {
+          max: 10,
+          //tickAmount: 3,
+          type: "category",
+          //type: 'numeric',
+        },
+        yaxis: {
+          max: 50,
+        },
+      };
+      new ApexCharts(document.querySelector("#chart04"), options4).render();
+
+      options5 = {
+        series: [
+          {
+            data: [
+              {
+                x: "나의 학습시간",
+                y: 10,
+              },
+              {
+                x: "학급 평균 학습시간",
+                y: 18,
+              },
+              {
+                x: "학급 상위 30% 학습시간",
+                y: 13,
+              },
+            ],
+          },
+        ],
+
+        chart: {
+          height: 250,
+          type: "bar",
+        },
+        grid: { show: false },
+        legend: { show: false },
+        //xaxis :{labels : {show : flase}},
+        //yaxis : {labels : {show : flase},},
+        plotOptions: {
+          bar: {
+            horizontal: true,
+          },
+        },
+        title: {
+          text: "학습시간(분)",
+        },
+        yaxis: {
+          max: 20,
+        },
+      };
+      new ApexCharts(document.querySelector("#chart05"), options5).render();
+
+      options6 = {
+        series: [
+          {
+            data: [
+              {
+                x: "출석율",
+                y: 90,
+              },
+              {
+                x: "적극성",
+                y: 43,
+              },
+              {
+                x: "집중도",
+                y: 64,
+              },
+              {
+                x: "충실도",
+                y: 75,
+              },
+            ],
+          },
+        ],
+
+        chart: {
+          height: 250,
+          type: "bar",
+        },
+        grid: { show: false },
+        legend: { show: false },
+        //xaxis :{labels : {show : flase}},
+        //yaxis : {labels : {show : flase},},
+        plotOptions: {
+          bar: {
+            horizontal: false,
+            distributed: true,
+          },
+        },
+        title: {
+          text: "학습 참여도(%)",
+        },
+        yaxis: {
+          max: 100,
+        },
+      };
+      new ApexCharts(document.querySelector("#chart06"), options6).render();
+    </script>
+  </body>
+</html>
