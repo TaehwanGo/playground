@@ -1091,3 +1091,5 @@ npx tsc --init
 
 - https://git-scm.com/docs/git-revert
 - reset과 달리 revert는 커밋로그는 유지하면서 커밋하기 전으로 되돌릴 수 있다
+
+# test 1
