@@ -1095,3 +1095,5 @@ npx tsc --init
 # test 1
 
 # test 2-1
+
+# test 2-2
