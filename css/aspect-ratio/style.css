@@ -1,0 +1,15 @@
+body {
+  background-color: #1a1a1a;
+}
+
+.container {
+  width: 200px;
+  aspect-ratio: 2 / 1;
+  background-color: gray;
+}
+
+.img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
