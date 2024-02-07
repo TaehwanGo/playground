@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>광천수 회사 홈페이지</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background-color: #007bff;
+        color: white;
+        padding: 20px;
+        text-align: center;
+      }
+      nav {
+        background-color: #f4f4f4;
+        padding: 10px;
+        text-align: center;
+      }
+      nav a {
+        text-decoration: none;
+        color: #333;
+        padding: 10px;
+        margin: 0 5px;
+      }
+      nav a:hover {
+        background-color: #ddd;
+        border-radius: 5px;
+      }
+      section {
+        padding: 20px;
+      }
+      footer {
+        background-color: #007bff;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>광천수 회사</h1>
+    </header>
+    <nav>
+      <a href="#about">회사 소개</a>
+      <a href="#products">제품</a>
+      <a href="#contact">연락처</a>
+    </nav>
+    <div id="pc">pc</div>
+    <section id="about">
+      <h2>회사 소개</h2>
+      <p>광천수는 청정한 자연에서 나오는 생수를 공급하는 회사입니다.</p>
+    </section>
+    <section id="products">
+      <h2>제품</h2>
+      <p>광천수는 다양한 종류의 생수를 제공합니다.</p>
+      <ul>
+        <li>광천수 500ml</li>
+        <li>광천수 1L</li>
+        <li>광천수 2L</li>
+      </ul>
+    </section>
+    <section id="contact">
+      <h2>연락처</h2>
+      <p>광천수 회사에 연락할 수 있는 정보입니다.</p>
+      <p>전화번호: 123-456-7890</p>
+      <p>이메일: info@kwangchunwater.com</p>
+    </section>
+    <footer>
+      <p>&copy; 2024 광천수 회사</p>
+    </footer>
+  </body>
+  <script>
+    // 참고 : https://stackoverflow.com/questions/11381673/detecting-a-mobile-browser
+    const pc = document.getElementById("pc");
+    const isMobile = window.navigator.maxTouchPoints > 1;
+    if (window.navigator.maxTouchPoints > 1) {
+      pc.style.display = "none";
+    }
+    const options = {
+      screen: isMobile ? 1 : 2.5,
+    };
+  </script>
+</html>
